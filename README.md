@@ -53,7 +53,7 @@ Read [FAQs.](./FAQ.md)
 3. You can see the size occupied by each service account as well. ![](https://i.imgur.com/UK6OhSV.png)
 
 ## Note:
-1. More features can be requested apart from TODO below by creating an issue, or sending it on discord to `jsmsj#5252` or `jsmsj`
+1. More features can be requested apart from TODO below by creating an issue.
 2. You can send pull requests too. [Please do 🙏]
 
 ### TODO
