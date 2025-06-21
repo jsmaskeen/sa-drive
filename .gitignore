@@ -2,8 +2,7 @@ accounts/
 *__pycache__*
 *.json
 venv/
-video/
-log.txt
-tmp.py
-config.py
-tmp.txt
+*.log
+config_dir/
+setup.py
+dist/*

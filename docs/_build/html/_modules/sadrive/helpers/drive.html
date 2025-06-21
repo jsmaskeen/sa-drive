@@ -1,0 +1,691 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sadrive.helpers.drive &#8212; sadrive 2.0.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/documentation_options.js?v=51b770b3"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/sadrive/helpers/drive';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">sadrive 2.0.0 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../interface.html">
+    Command-Line Interface
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../apireference.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../interface.html">
+    Command-Line Interface
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../apireference.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">sadrive.helpers.drive</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for sadrive.helpers.drive</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Provides Google Drive client wrapper using service accounts for authentication.</span>
+
+<span class="sd">Includes:</span>
+<span class="sd">- PatchedDrive subclass for typing</span>
+<span class="sd">- SADrive class for Drive operations</span>
+<span class="sd">- Authentication</span>
+<span class="sd">- File listing, creation, upload, rename, delete</span>
+<span class="sd">- Sharing/unsharing</span>
+<span class="sd">- Search and space usage</span>
+<span class="sd">- Bulk deletion</span>
+
+<span class="sd">Constants:</span>
+<span class="sd">- PARENT_ID: Root folder ID from config</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="c1"># pyright: reportUnknownMemberType=false</span>
+<span class="c1"># pyright: reportAttributeAccessIssue=false</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">urllib.parse</span><span class="w"> </span><span class="kn">import</span> <span class="n">quote</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sadrive.helpers.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_parent_id</span><span class="p">,</span> <span class="n">get_accounts_path</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pydrive2.auth</span><span class="w"> </span><span class="kn">import</span> <span class="n">GoogleAuth</span> <span class="c1">#type:ignore</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pydrive2.drive</span><span class="w"> </span><span class="kn">import</span> <span class="n">GoogleDrive</span> <span class="c1">#type:ignore</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pydrive2.files</span><span class="w"> </span><span class="kn">import</span> <span class="n">GoogleDriveFile</span> <span class="c1">#type:ignore</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">googleapiclient.http</span><span class="w"> </span><span class="kn">import</span> <span class="n">MediaIoBaseUpload</span><span class="p">,</span><span class="n">MediaUploadProgress</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">cast</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span><span class="n">List</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">googleapiclient.discovery</span><span class="w"> </span><span class="kn">import</span> <span class="n">Resource</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">io</span><span class="w"> </span><span class="kn">import</span> <span class="n">IOBase</span>
+
+
+<span class="n">PARENT_ID</span> <span class="o">=</span> <span class="n">get_parent_id</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="PatchedDrive">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.drive.html#sadrive.helpers.drive.PatchedDrive">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">PatchedDrive</span><span class="p">(</span><span class="n">GoogleDrive</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Subclass of GoogleDrive with explicit auth attribute for type checking.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        auth: GoogleAuth instance used for authentication.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">auth</span><span class="p">:</span> <span class="n">GoogleAuth</span></div>
+
+
+
+<div class="viewcode-block" id="SADrive">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.drive.html#sadrive.helpers.drive.SADrive">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">SADrive</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Service-account-driven Google Drive client.</span>
+
+<span class="sd">    Uses pydrive2 and googleapiclient to perform common operations.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service_account_num</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes the SADrive client.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            service_account_num: Index of the service account to use (as string).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sa_num</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">service_account_num</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cwd</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">drive</span><span class="p">:</span> <span class="n">PatchedDrive</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">authorise</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_service</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">Resource</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">drive</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">service</span><span class="p">)</span>
+
+<div class="viewcode-block" id="SADrive.list_files">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.drive.html#sadrive.helpers.drive.SADrive.list_files">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">list_files</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;root&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Lists non-trashed files under a given folder.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            parent_id: Drive folder ID (default: &#39;root&#39;).</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            List of GoogleDriveFile instances.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">files</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">GoogleDriveFile</span><span class="p">]</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span>
+            <span class="n">List</span><span class="p">[</span><span class="n">GoogleDriveFile</span><span class="p">],</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">drive</span><span class="o">.</span><span class="n">ListFile</span><span class="p">(</span>
+                <span class="p">{</span><span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">parent_id</span><span class="si">}</span><span class="s2">&#39; in parents and trashed=false&quot;</span><span class="p">}</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">GetList</span><span class="p">(),</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">files</span></div>
+
+
+<div class="viewcode-block" id="SADrive.create_folder">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.drive.html#sadrive.helpers.drive.SADrive.create_folder">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">create_folder</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subfolder_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">parent_folder_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;root&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates a new folder in Drive.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            subfolder_name: Name for the new folder.</span>
+<span class="sd">            parent_folder_id: ID of the parent folder (default &#39;root&#39;).</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The ID of the created folder.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">newFolder</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">drive</span><span class="o">.</span><span class="n">CreateFile</span><span class="p">(</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="n">subfolder_name</span><span class="p">,</span>
+                    <span class="s2">&quot;parents&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">parent_folder_id</span><span class="p">}],</span>
+                    <span class="s2">&quot;mimeType&quot;</span><span class="p">:</span> <span class="s2">&quot;application/vnd.google-apps.folder&quot;</span><span class="p">,</span>
+                <span class="p">}</span>
+            <span class="p">)</span>
+        
+        <span class="n">newFolder</span><span class="o">.</span><span class="n">Upload</span><span class="p">()</span>
+        <span class="n">newFolder</span><span class="o">.</span><span class="n">FetchMetadata</span><span class="p">(</span><span class="n">fetch_all</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">cast</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">newFolder</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="SADrive.upload_file">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.drive.html#sadrive.helpers.drive.SADrive.upload_file">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">upload_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">parent_folder_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">stream_bytes</span><span class="p">:</span> <span class="n">IOBase</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Uploads a file stream to Drive with resumable media.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            filename: Name to assign in Drive.</span>
+<span class="sd">            parent_folder_id: ID of the destination folder.</span>
+<span class="sd">            stream_bytes: File-like object providing binary data.</span>
+
+<span class="sd">        Yields:</span>
+<span class="sd">            Progress percentage integers until upload completes.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The upload response dict from the Drive API.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># media = MediaFileUpload(&#39;pig.png&#39;, mimetype=&#39;image/png&#39;, resumable=True)</span>
+        <span class="n">media</span> <span class="o">=</span> <span class="n">MediaIoBaseUpload</span><span class="p">(</span>
+            <span class="n">fd</span><span class="o">=</span><span class="n">stream_bytes</span><span class="p">,</span>
+            <span class="n">mimetype</span><span class="o">=</span><span class="s2">&quot;application/octet-stream&quot;</span><span class="p">,</span>
+            <span class="n">resumable</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">chunksize</span><span class="o">=</span><span class="mi">100</span> <span class="o">*</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">request</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span>
+            <span class="n">Any</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_service</span><span class="o">.</span><span class="n">files</span><span class="p">()</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span>
+                <span class="n">media_body</span><span class="o">=</span><span class="n">media</span><span class="p">,</span>
+                <span class="n">body</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;parents&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">parent_folder_id</span><span class="p">}]},</span>
+                <span class="n">supportsAllDrives</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="p">),</span>
+        <span class="p">)</span>
+        <span class="n">media</span><span class="o">.</span><span class="n">stream</span><span class="p">()</span>
+        <span class="n">response</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">while</span> <span class="n">response</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">status</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">MediaUploadProgress</span><span class="p">]</span>
+            <span class="n">status</span><span class="p">,</span> <span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">next_chunk</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">status</span><span class="p">:</span>
+                <span class="k">yield</span> <span class="nb">int</span><span class="p">(</span><span class="n">status</span><span class="o">.</span><span class="n">progress</span><span class="p">()</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">response</span></div>
+
+
+        <span class="c1"># response {&#39;kind&#39;: &#39;drive#file&#39;, &#39;userPermission&#39;: {&#39;id&#39;: &#39;me&#39;, &#39;type&#39;: &#39;user&#39;, &#39;role&#39;: &#39;owner&#39;, &#39;kind&#39;: &#39;drive#permission&#39;, &#39;selfLink&#39;: &#39;https://www.googleapis.com/drive/v2/files/1Wfr9scVNpIE5tBNAg7LKproAWbinqpwr/permissions/me&#39;, &#39;etag&#39;: &#39;&quot;A-u9H6ZnEvMXyM640YFpek6R0yk&quot;&#39;, &#39;pendingOwner&#39;: False}, &#39;fileExtension&#39;: &#39;&#39;, &#39;md5Checksum&#39;: &#39;8e323c60b37c3a6a890b24b9ba68ac4f&#39;, &#39;selfLink&#39;: &#39;https://www.googleapis.com/drive/v2/files/1Wfr9scVNpIE5tBNAg7LKproAWbinqpwr&#39;, &#39;ownerNames&#39;: [&#39;mfc-s4z3no6lohxf2hzaw-vz76v-k3@fight-club-377114.iam.gserviceaccount.com&#39;], &#39;lastModifyingUserName&#39;: &#39;mfc-s4z3no6lohxf2hzaw-vz76v-k3@fight-club-377114.iam.gserviceaccount.com&#39;, &#39;editable&#39;: True, &#39;writersCanShare&#39;: True, &#39;downloadUrl&#39;: &#39;https://www.googleapis.comhttps:/drive/v2/files/1Wfr9scVNpIE5tBNAg7LKproAWbinqpwr?alt=media&amp;source=downloadUrl&#39;, &#39;mimeType&#39;: &#39;application/octet-stream&#39;, &#39;parents&#39;: [{&#39;selfLink&#39;: &#39;https://www.googleapis.com/drive/v2/files/1Wfr9scVNpIE5tBNAg7LKproAWbinqpwr/parents/1at0dM_hN2GFVn8ANGOlFwvo5ZcJy38XC&#39;, &#39;id&#39;: &#39;1at0dM_hN2GFVn8ANGOlFwvo5ZcJy38XC&#39;, &#39;isRoot&#39;: False, &#39;kind&#39;: &#39;drive#parentReference&#39;, &#39;parentLink&#39;: &#39;https://www.googleapis.com/drive/v2/files/1at0dM_hN2GFVn8ANGOlFwvo5ZcJy38XC&#39;}], &#39;appDataContents&#39;: False, &#39;iconLink&#39;: &#39;https://drive-thirdparty.googleusercontent.com/16/type/application/octet-stream&#39;, &#39;shared&#39;: True, &#39;lastModifyingUser&#39;: {&#39;displayName&#39;: &#39;mfc-s4z3no6lohxf2hzaw-vz76v-k3@fight-club-377114.iam.gserviceaccount.com&#39;, &#39;kind&#39;: &#39;drive#user&#39;, &#39;isAuthenticatedUser&#39;: True, &#39;permissionId&#39;: &#39;14036184373008939997&#39;, &#39;emailAddress&#39;: &#39;mfc-s4z3no6lohxf2hzaw-vz76v-k3@fight-club-377114.iam.gserviceaccount.com&#39;, &#39;picture&#39;: {&#39;url&#39;: &#39;https://lh3.googleusercontent.com/a/default-user=s64&#39;}}, &#39;owners&#39;: [{&#39;displayName&#39;: &#39;mfc-s4z3no6lohxf2hzaw-vz76v-k3@fight-club-377114.iam.gserviceaccount.com&#39;, &#39;kind&#39;: &#39;drive#user&#39;, &#39;isAuthenticatedUser&#39;: True, &#39;permissionId&#39;: &#39;14036184373008939997&#39;, &#39;emailAddress&#39;: &#39;mfc-s4z3no6lohxf2hzaw-vz76v-k3@fight-club-377114.iam.gserviceaccount.com&#39;, &#39;picture&#39;: {&#39;url&#39;: &#39;https://lh3.googleusercontent.com/a/default-user=s64&#39;}}], &#39;headRevisionId&#39;: &#39;0ByzOS1ESBxMOK0h4T0pUSWF4Nmw1OWp0azJweVFNL3JQdk1vPQ&#39;, &#39;copyable&#39;: True, &#39;etag&#39;: &#39;&quot;MTY4OTY3NzMzOTEwNw&quot;&#39;, &#39;alternateLink&#39;: &#39;https://drive.google.com/file/d/1Wfr9scVNpIE5tBNAg7LKproAWbinqpwr/view?usp=drivesdk&#39;, &#39;embedLink&#39;: &#39;https://drive.google.com/file/d/1Wfr9scVNpIE5tBNAg7LKproAWbinqpwr/preview?usp=drivesdk&#39;, &#39;webContentLink&#39;: &#39;https://drive.google.com/uc?id=1Wfr9scVNpIE5tBNAg7LKproAWbinqpwr&amp;export=download&#39;, &#39;fileSize&#39;: &#39;543572585&#39;, &#39;copyRequiresWriterPermission&#39;: False, &#39;spaces&#39;: [&#39;drive&#39;], &#39;id&#39;: &#39;1Wfr9scVNpIE5tBNAg7LKproAWbinqpwr&#39;, &#39;title&#39;: &#39;Untitled&#39;, &#39;labels&#39;: {&#39;viewed&#39;: True, &#39;restricted&#39;: False, &#39;starred&#39;: False, &#39;hidden&#39;: False, &#39;trashed&#39;: False}, &#39;explicitlyTrashed&#39;: False, &#39;createdDate&#39;: &#39;2023-07-18T10:48:59.107Z&#39;, &#39;modifiedDate&#39;: &#39;2023-07-18T10:48:59.107Z&#39;, &#39;modifiedByMeDate&#39;: &#39;2023-07-18T10:48:59.107Z&#39;, &#39;lastViewedByMeDate&#39;: &#39;2023-07-18T10:48:59.107Z&#39;, &#39;markedViewedByMeDate&#39;: &#39;1970-01-01T00:00:00.000Z&#39;, &#39;quotaBytesUsed&#39;: &#39;543572585&#39;, &#39;version&#39;: &#39;1&#39;, &#39;originalFilename&#39;: &#39;Untitled&#39;, &#39;capabilities&#39;: {&#39;canEdit&#39;: True, &#39;canCopy&#39;: True}}</span>
+
+<div class="viewcode-block" id="SADrive.rename">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.drive.html#sadrive.helpers.drive.SADrive.rename">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">rename</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fileid</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">new_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Renames an existing Drive file.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            fileid: ID of the file to rename.</span>
+<span class="sd">            new_name: New title for the file.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The updated GoogleDriveFile instance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">drive</span><span class="o">.</span><span class="n">CreateFile</span><span class="p">({</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">fileid</span><span class="p">})</span>
+        <span class="n">f</span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_name</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">Upload</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">f</span></div>
+
+
+<div class="viewcode-block" id="SADrive.share">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.drive.html#sadrive.helpers.drive.SADrive.share">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">share</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fileid</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Publishes a file by granting &#39;reader&#39; permission to anyone.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            fileid: ID of the file to share.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The file&#39;s alternateLink.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">drive</span><span class="o">.</span><span class="n">CreateFile</span><span class="p">({</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">fileid</span><span class="p">})</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">InsertPermission</span><span class="p">({</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;anyone&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;anyone&quot;</span><span class="p">,</span> <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;reader&quot;</span><span class="p">})</span>
+        <span class="k">return</span> <span class="n">cast</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">f</span><span class="p">[</span><span class="s2">&quot;alternateLink&quot;</span><span class="p">])</span></div>
+
+
+<div class="viewcode-block" id="SADrive.authorise">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.drive.html#sadrive.helpers.drive.SADrive.authorise">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">authorise</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PatchedDrive</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Authenticates using a service account JSON.</span>
+
+<span class="sd">        Uses pydrive2.GoogleAuth with service backend settings.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            An authenticated PatchedDrive instance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">settings</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;client_config_backend&quot;</span><span class="p">:</span> <span class="s2">&quot;service&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;service_config&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;client_json_file_path&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">get_accounts_path</span><span class="p">()</span><span class="si">}</span><span class="se">\\</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">sa_num</span><span class="si">}</span><span class="s2">.json&quot;</span><span class="p">,</span>
+            <span class="p">},</span>
+        <span class="p">}</span>
+        <span class="n">gauth</span> <span class="o">=</span> <span class="n">GoogleAuth</span><span class="p">(</span><span class="n">settings</span><span class="o">=</span><span class="n">settings</span><span class="p">)</span>
+        <span class="n">gauth</span><span class="o">.</span><span class="n">ServiceAuth</span><span class="p">()</span>
+        <span class="n">drive</span> <span class="o">=</span> <span class="n">GoogleDrive</span><span class="p">(</span><span class="n">gauth</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">cast</span><span class="p">(</span><span class="n">PatchedDrive</span><span class="p">,</span> <span class="n">drive</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SADrive.delete_file">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.drive.html#sadrive.helpers.drive.SADrive.delete_file">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">delete_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Deletes a file in Drive.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            file_id: ID of the file to remove.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">drive</span><span class="o">.</span><span class="n">CreateFile</span><span class="p">({</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">file_id</span><span class="p">})</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">Delete</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="SADrive.unshare">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.drive.html#sadrive.helpers.drive.SADrive.unshare">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">unshare</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Revokes &#39;anyone&#39; permission from a file.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            file_id: ID of the file to unshare.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">f</span> <span class="o">=</span>  <span class="bp">self</span><span class="o">.</span><span class="n">drive</span><span class="o">.</span><span class="n">CreateFile</span><span class="p">({</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">file_id</span><span class="p">})</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">DeletePermission</span><span class="p">(</span><span class="s2">&quot;anyone&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SADrive.search">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.drive.html#sadrive.helpers.drive.SADrive.search">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Searches for files whose titles contain a substring.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            name: Substring to match in file titles.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            List of dict representations of matched files.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span>
+            <span class="n">List</span><span class="p">[</span><span class="n">GoogleDriveFile</span><span class="p">],</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">drive</span><span class="o">.</span><span class="n">ListFile</span><span class="p">(</span>
+                <span class="p">{</span><span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;(title contains &#39;</span><span class="si">{</span><span class="n">quote</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">safe</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&#39;) and trashed=false&quot;</span><span class="p">}</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">GetList</span><span class="p">(),</span>
+        <span class="p">)</span>
+        <span class="n">files</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">List</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span> <span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">l</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">files</span></div>
+
+
+<div class="viewcode-block" id="SADrive.used_space">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.drive.html#sadrive.helpers.drive.SADrive.used_space">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">used_space</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retrieves the total bytes used by the authenticated account.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Bytes used as an integer.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">about</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="nb">dict</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">drive</span><span class="o">.</span><span class="n">GetAbout</span><span class="p">())</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">about</span><span class="p">[</span><span class="s2">&quot;quotaBytesUsed&quot;</span><span class="p">])</span></div>
+
+
+<div class="viewcode-block" id="SADrive.delete_all_files">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.drive.html#sadrive.helpers.drive.SADrive.delete_all_files">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">delete_all_files</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Permanently deletes all non-trashed files owned by the account.</span>
+
+<span class="sd">        Iterates pages of up to 1000 items, printing progress to stdout.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">drive</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">drive</span>
+        <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&#39;me&#39; in owners and trashed=false&quot;</span>
+        <span class="n">page_token</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">params</span> <span class="o">=</span> <span class="p">{</span> <span class="c1">#type:ignore</span>
+                <span class="s1">&#39;q&#39;</span><span class="p">:</span> <span class="n">query</span><span class="p">,</span>
+                <span class="s1">&#39;maxResults&#39;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+                <span class="s1">&#39;supportsAllDrives&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                <span class="s1">&#39;includeItemsFromAllDrives&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="p">}</span>
+            <span class="k">if</span> <span class="n">page_token</span><span class="p">:</span>
+                <span class="n">params</span><span class="p">[</span><span class="s1">&#39;pageToken&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">page_token</span>
+
+            <span class="n">file_list</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">List</span><span class="p">[</span><span class="n">GoogleDriveFile</span><span class="p">],</span> <span class="n">drive</span><span class="o">.</span><span class="n">ListFile</span><span class="p">(</span><span class="n">params</span><span class="p">)</span><span class="o">.</span><span class="n">GetList</span><span class="p">())</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">file_list</span><span class="p">:</span>
+                <span class="k">break</span>
+
+            <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">file_list</span><span class="p">:</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">))</span> <span class="c1">#type:ignore</span>
+                <span class="n">fid</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="c1">#type:ignore</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Deleting file: </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> (ID: </span><span class="si">{</span><span class="n">fid</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+                    <span class="n">f</span><span class="o">.</span><span class="n">Delete</span><span class="p">()</span>
+                <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  → Failed to delete </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="n">page_token</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">file_list</span><span class="p">,</span> <span class="s1">&#39;nextPageToken&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">page_token</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Finished deleting all owned files.&quot;</span><span class="p">)</span>
+                <span class="k">break</span></div>
+</div>
+
+    
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, jsmaskeen.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

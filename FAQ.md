@@ -32,10 +32,6 @@ No you are free to choose the root folder (parent folder) name as well as the go
 
 You can have any number of service accounts you want. 100 is given because when adding the service account emails to the google group, a user has the limit of adding 100 members (or emails) per day.
 
-## I ran the program to create the service accounts in [Service Account Utility](./Service%20Account%20Utility/) but it gave an error. If I run the program again, would it create another 100 service accounts?
-
-The program shows the step by step logs of what its doing. If you get an error, and you are aware that 100 service accounts have already been created then you can open up any text editor and edit the [sa_creation_utility.py](./Service%20Account%20Utility/sa_creation_utility.py) file and comment out the lines which indicate that accounts are being created. Then re-run the program to create service accounts.
-
 ## Would tweaking with the Cloud Console this much have any effect on the Gmail account?
 
 Not at all. Google Could Console is meant to be used by the users, to make their lives easier lol.

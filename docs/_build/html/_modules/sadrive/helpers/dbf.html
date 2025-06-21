@@ -1,0 +1,762 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sadrive.helpers.dbf &#8212; sadrive 2.0.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/documentation_options.js?v=51b770b3"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/sadrive/helpers/dbf';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">sadrive 2.0.0 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../interface.html">
+    Command-Line Interface
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../apireference.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../interface.html">
+    Command-Line Interface
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../apireference.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">sadrive.helpers.dbf</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for sadrive.helpers.dbf</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Database operations module for the CLI application.</span>
+
+<span class="sd">This module manages SQLite connection, schema initialization, and CRUD operations</span>
+<span class="sd">for file mappings and service account size tracking.</span>
+
+<span class="sd">Provides:</span>
+<span class="sd">- Connection management</span>
+<span class="sd">- Table creation for file_map and sa_size_map</span>
+<span class="sd">- Insert, update, delete, and query functions for file entries</span>
+<span class="sd">- Service account size tracking and management</span>
+<span class="sd">- Utility functions for searching and space reporting</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sqlite3</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sadrive.helpers.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_database_path</span><span class="p">,</span><span class="n">get_accounts_path</span><span class="p">,</span><span class="n">MAGIC_SIZE</span>
+
+<div class="viewcode-block" id="get_connection">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.dbf.html#sadrive.helpers.dbf.get_connection">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_connection</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Opens a SQLite connection to the configured database.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        sqlite3.Connection: Connection object with row_factory set to sqlite3.Row.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">get_database_path</span><span class="p">())</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">row_factory</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">Row</span>
+    <span class="k">return</span> <span class="n">conn</span></div>
+
+
+<span class="k">with</span> <span class="n">get_connection</span><span class="p">()</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+    <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">        CREATE TABLE IF NOT EXISTS file_map (</span>
+<span class="s1">            _id TEXT PRIMARY KEY,</span>
+<span class="s1">            file_name TEXT,</span>
+<span class="s1">            parent_id TEXT,</span>
+<span class="s1">            file_size INTEGER,</span>
+<span class="s1">            type TEXT,</span>
+<span class="s1">            service_acc_num TEXT,</span>
+<span class="s1">            shared INTEGER</span>
+<span class="s1">        )</span>
+<span class="s1">    &#39;&#39;&#39;</span><span class="p">)</span>
+    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">        CREATE TABLE IF NOT EXISTS sa_size_map (</span>
+<span class="s1">            _id TEXT PRIMARY KEY,</span>
+<span class="s1">            size INTEGER,</span>
+<span class="s1">            email TEXT</span>
+<span class="s1">        )</span>
+<span class="s1">    &#39;&#39;&#39;</span><span class="p">)</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="insert_file">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.dbf.html#sadrive.helpers.dbf.insert_file">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">insert_file</span><span class="p">(</span>
+    <span class="n">file_id</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">file_name</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">parent_id</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">file_size</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="nb">type</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">service_acc_num</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">shared</span><span class="p">:</span><span class="nb">bool</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Inserts a new file record into file_map and updates account size.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        file_id: Unique identifier of the file in Drive.</span>
+<span class="sd">        file_name: Name of the file.</span>
+<span class="sd">        parent_id: Parent folder identifier.</span>
+<span class="sd">        file_size: Size of the file in bytes.</span>
+<span class="sd">        type: &quot;file&quot; or &quot;folder&quot;.</span>
+<span class="sd">        service_acc_num: ID of the service account used.</span>
+<span class="sd">        shared: Whether the file is shared.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="n">get_connection</span><span class="p">()</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+<span class="w">            </span><span class="sd">&#39;&#39;&#39;INSERT INTO file_map</span>
+<span class="sd">               (_id, file_name, parent_id, file_size, type, service_acc_num, shared)</span>
+<span class="sd">               VALUES (?, ?, ?, ?, ?, ?, ?)&#39;&#39;&#39;</span><span class="p">,</span>
+            <span class="p">(</span><span class="n">file_id</span><span class="p">,</span> <span class="n">file_name</span><span class="p">,</span> <span class="n">parent_id</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">file_size</span><span class="p">),</span> <span class="nb">type</span><span class="p">,</span> <span class="n">service_acc_num</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">shared</span><span class="p">))</span>
+        <span class="p">)</span>
+    <span class="n">add_size</span><span class="p">(</span><span class="n">service_acc_num</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">file_size</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="clear_file_map">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.dbf.html#sadrive.helpers.dbf.clear_file_map">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">clear_file_map</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Deletes all records from file_map.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="n">get_connection</span><span class="p">()</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+        <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;DELETE FROM file_map&quot;</span><span class="p">)</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="reset_sa_sizes">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.dbf.html#sadrive.helpers.dbf.reset_sa_sizes">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">reset_sa_sizes</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Resets all sizes in sa_size_map to zero.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="n">get_connection</span><span class="p">()</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+        <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;UPDATE sa_size_map SET size = 0&quot;</span><span class="p">)</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span></div>
+
+
+
+<div class="viewcode-block" id="get_file_details">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.dbf.html#sadrive.helpers.dbf.get_file_details">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_file_details</span><span class="p">(</span><span class="n">file_id</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retrieves a file record by its ID.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        file_id: Unique identifier to look up.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        dict: File record fields, or None if not found.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="n">get_connection</span><span class="p">()</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+        <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM file_map WHERE _id = ?&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">file_id</span><span class="p">,))</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+        <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">row</span><span class="p">)</span> <span class="k">if</span> <span class="n">row</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+
+
+<div class="viewcode-block" id="rename_file">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.dbf.html#sadrive.helpers.dbf.rename_file">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">rename_file</span><span class="p">(</span><span class="n">file_id</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">new_file_name</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Updates the name of a file record.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        file_id: ID of the file to rename.</span>
+<span class="sd">        new_file_name: New name to assign.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">details</span> <span class="o">=</span> <span class="n">get_file_details</span><span class="p">(</span><span class="n">file_id</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">details</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="k">with</span> <span class="n">get_connection</span><span class="p">()</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+            <span class="s1">&#39;UPDATE file_map SET file_name = ? WHERE _id = ?&#39;</span><span class="p">,</span>
+            <span class="p">(</span><span class="n">new_file_name</span><span class="p">,</span> <span class="n">file_id</span><span class="p">)</span>
+        <span class="p">)</span></div>
+
+        
+
+<div class="viewcode-block" id="share_file">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.dbf.html#sadrive.helpers.dbf.share_file">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">share_file</span><span class="p">(</span><span class="n">file_id</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">shared</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Marks a file as shared or unshared.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        file_id: ID of the file.</span>
+<span class="sd">        shared: True to mark shared, False otherwise.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="n">get_connection</span><span class="p">()</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+            <span class="s1">&#39;UPDATE file_map SET shared = ? WHERE _id = ?&#39;</span><span class="p">,</span>
+            <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">shared</span><span class="p">),</span> <span class="n">file_id</span><span class="p">)</span>
+        <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="delete_file">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.dbf.html#sadrive.helpers.dbf.delete_file">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">delete_file</span><span class="p">(</span><span class="n">file_id</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Deletes a file record and subtracts its size from the service account.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        file_id: ID of the file to remove.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">details</span> <span class="o">=</span> <span class="n">get_file_details</span><span class="p">(</span><span class="n">file_id</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">details</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="k">with</span> <span class="n">get_connection</span><span class="p">()</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;DELETE FROM file_map WHERE _id = ?&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">file_id</span><span class="p">,))</span>
+    <span class="n">remove_size</span><span class="p">(</span><span class="n">details</span><span class="p">[</span><span class="s1">&#39;service_acc_num&#39;</span><span class="p">],</span> <span class="n">details</span><span class="p">[</span><span class="s1">&#39;file_size&#39;</span><span class="p">])</span></div>
+
+
+<div class="viewcode-block" id="insert_size_map">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.dbf.html#sadrive.helpers.dbf.insert_size_map">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">insert_size_map</span><span class="p">(</span><span class="n">sa_num</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span><span class="nb">int</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Inserts a new entry in sa_size_map with initial size and email from account file.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        sa_num: Service account identifier.</span>
+<span class="sd">        size: Initial size in bytes. Default is 0.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">file_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">get_accounts_path</span><span class="p">()</span><span class="si">}</span><span class="se">\\</span><span class="si">{</span><span class="n">sa_num</span><span class="si">}</span><span class="s2">.json&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">ce</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)[</span><span class="s1">&#39;client_email&#39;</span><span class="p">]</span>
+    <span class="k">with</span> <span class="n">get_connection</span><span class="p">()</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+            <span class="s1">&#39;INSERT INTO sa_size_map (_id, size, email) VALUES (?, ?, ?)&#39;</span><span class="p">,</span>
+            <span class="p">(</span><span class="n">sa_num</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">ce</span><span class="p">)</span>
+        <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="get_sa_size_taken">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.dbf.html#sadrive.helpers.dbf.get_sa_size_taken">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_sa_size_taken</span><span class="p">(</span><span class="n">sa_num</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retrieves size and email for a given service account.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        sa_num: Service account identifier.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        dict: Record fields, or None if not found.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="n">get_connection</span><span class="p">()</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+        <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM sa_size_map WHERE _id = ?&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">sa_num</span><span class="p">,))</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+        <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">row</span><span class="p">)</span> <span class="k">if</span> <span class="n">row</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+
+
+<div class="viewcode-block" id="add_size">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.dbf.html#sadrive.helpers.dbf.add_size">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">add_size</span><span class="p">(</span><span class="n">sa_num</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span><span class="n">syncing</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Updates a service account&#39;s size, adding or syncing.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        sa_num: ID of the account to update.</span>
+<span class="sd">        size: Size change in bytes.</span>
+<span class="sd">        syncing: If True, sets size exactly to &#39;size&#39;.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">syncing</span><span class="p">:</span>
+        <span class="k">with</span> <span class="n">get_connection</span><span class="p">()</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+            <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+                <span class="s1">&#39;UPDATE sa_size_map SET size = ? WHERE _id = ?&#39;</span><span class="p">,</span>
+                <span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">sa_num</span><span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">return</span>
+    <span class="n">record</span> <span class="o">=</span> <span class="n">get_sa_size_taken</span><span class="p">(</span><span class="n">sa_num</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">record</span><span class="p">:</span>
+        <span class="n">insert_size_map</span><span class="p">(</span><span class="n">sa_num</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+        <span class="k">return</span>
+    <span class="n">new_size</span> <span class="o">=</span> <span class="n">record</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">size</span>
+    <span class="k">with</span> <span class="n">get_connection</span><span class="p">()</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+            <span class="s1">&#39;UPDATE sa_size_map SET size = ? WHERE _id = ?&#39;</span><span class="p">,</span>
+            <span class="p">(</span><span class="n">new_size</span><span class="p">,</span> <span class="n">sa_num</span><span class="p">)</span>
+        <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="get_size_map">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.dbf.html#sadrive.helpers.dbf.get_size_map">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_size_map</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retrieves all service account size records.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        list of dict: Each dict has &#39;_id&#39;, &#39;size&#39;, and &#39;email&#39;.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="n">get_connection</span><span class="p">()</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+        <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM sa_size_map&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">row</span><span class="p">)</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cur</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()]</span></div>
+
+
+
+<div class="viewcode-block" id="get_sa_num">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.dbf.html#sadrive.helpers.dbf.get_sa_num">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_sa_num</span><span class="p">(</span><span class="n">email</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Finds a service account ID by its email.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        email: Client email to search.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        str or None: Account ID if found.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="n">get_connection</span><span class="p">()</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+        <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT _id FROM sa_size_map WHERE email = ?&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">email</span><span class="p">,))</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;_id&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="n">row</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+
+
+<div class="viewcode-block" id="find_children">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.dbf.html#sadrive.helpers.dbf.find_children">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">find_children</span><span class="p">(</span><span class="n">parent_id</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Lists file_map entries with the given parent_id.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        parent_id: Parent folder identifier.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        list of dict: File records under the parent.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="n">get_connection</span><span class="p">()</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+        <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM file_map WHERE parent_id = ?&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">parent_id</span><span class="p">,))</span>
+        <span class="k">return</span> <span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">row</span><span class="p">)</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cur</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()]</span></div>
+
+
+
+<div class="viewcode-block" id="remove_size">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.dbf.html#sadrive.helpers.dbf.remove_size">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">remove_size</span><span class="p">(</span><span class="n">sa_num</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span><span class="nb">int</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Subtracts size from a service account&#39;s recorded usage.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        sa_num: Account ID.</span>
+<span class="sd">        size: Bytes to subtract.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">record</span> <span class="o">=</span> <span class="n">get_sa_size_taken</span><span class="p">(</span><span class="n">sa_num</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">record</span><span class="p">:</span>
+        <span class="n">insert_size_map</span><span class="p">(</span><span class="n">sa_num</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span>
+    <span class="n">new_size</span> <span class="o">=</span> <span class="n">record</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">size</span>
+    <span class="k">with</span> <span class="n">get_connection</span><span class="p">()</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+            <span class="s1">&#39;UPDATE sa_size_map SET size = ? WHERE _id = ?&#39;</span><span class="p">,</span>
+            <span class="p">(</span><span class="n">new_size</span><span class="p">,</span> <span class="n">sa_num</span><span class="p">)</span>
+        <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="search_for_file_contains">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.dbf.html#sadrive.helpers.dbf.search_for_file_contains">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">search_for_file_contains</span><span class="p">(</span><span class="n">value</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Searches file_map for filenames containing a substring.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        value: Substring to search in file_name.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        list of dict: Matching file records.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">pattern</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;%</span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">%&quot;</span>
+    <span class="k">with</span> <span class="n">get_connection</span><span class="p">()</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+        <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+            <span class="s1">&#39;SELECT * FROM file_map WHERE file_name LIKE ?&#39;</span><span class="p">,</span>
+            <span class="p">(</span><span class="n">pattern</span><span class="p">,)</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">row</span><span class="p">)</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cur</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()]</span></div>
+
+
+
+<div class="viewcode-block" id="space_details">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.dbf.html#sadrive.helpers.dbf.space_details">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">space_details</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns aggregated occupied and available space across accounts.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        occupied (int): Total used bytes.</span>
+<span class="sd">        available (int): Total available capacity in bytes.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="n">get_connection</span><span class="p">()</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+        <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT size FROM sa_size_map&#39;</span><span class="p">)</span>
+        <span class="n">sizes</span> <span class="o">=</span> <span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cur</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()]</span>
+    <span class="n">available</span> <span class="o">=</span> <span class="n">MAGIC_SIZE</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">sizes</span><span class="p">)</span>
+    <span class="n">occupied</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">sizes</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">occupied</span><span class="p">,</span> <span class="n">available</span></div>
+
+
+
+<div class="viewcode-block" id="folder_exists">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.dbf.html#sadrive.helpers.dbf.folder_exists">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">folder_exists</span><span class="p">(</span><span class="n">name</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">parent_id</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Checks if a folder entry exists under a parent.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        name: Folder name to look for.</span>
+<span class="sd">        parent_id: Parent folder identifier.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        str or None: Folder ID if exists, else None.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="n">get_connection</span><span class="p">()</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+        <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+            <span class="s2">&quot;SELECT _id FROM file_map WHERE parent_id = ? AND file_name = ? AND type = &#39;folder&#39;&quot;</span><span class="p">,</span>
+            <span class="p">(</span><span class="n">parent_id</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;_id&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="n">row</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, jsmaskeen.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

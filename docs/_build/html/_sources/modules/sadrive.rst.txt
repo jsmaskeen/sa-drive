@@ -1,0 +1,24 @@
+sadrive package
+===============
+
+.. automodule:: sadrive
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   sadrive.commands
+   sadrive.helpers
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   sadrive.cli

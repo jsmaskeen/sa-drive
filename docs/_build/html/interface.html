@@ -1,0 +1,859 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Command-Line Interface &#8212; sadrive 2.0.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=51b770b3"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'interface';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="API Reference" href="apireference.html" />
+    <link rel="prev" title="Sadrive Documentation" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">sadrive 2.0.0 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Command-Line Interface
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="apireference.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Command-Line Interface
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="apireference.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"></div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Command-Line Interface</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="command-line-interface">
+<h1>Command-Line Interface<a class="headerlink" href="#command-line-interface" title="Link to this heading">#</a></h1>
+<section id="sadrive">
+<h2>sadrive<a class="headerlink" href="#sadrive" title="Link to this heading">#</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sadrive<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>COMMAND<span class="w"> </span><span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<section id="sadrive-clearall">
+<h3>clearall<a class="headerlink" href="#sadrive-clearall" title="Link to this heading">#</a></h3>
+<p>CLI command to permanently delete all files across all service accounts
+and reset the local file and size maps.</p>
+<dl class="simple">
+<dt>Side Effects:</dt><dd><ul class="simple">
+<li><p>Deletes every non-trashed file owned by each service account.</p></li>
+<li><p>Clears the file_map table.</p></li>
+<li><p>Resets all service account sizes to zero.</p></li>
+<li><p>Prints progress and a final confirmation message.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sadrive<span class="w"> </span>clearall<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</section>
+<section id="sadrive-config">
+<h3>config<a class="headerlink" href="#sadrive-config" title="Link to this heading">#</a></h3>
+<p>Top-level configuration command group.</p>
+<p>Use this group to manage application settings,
+such as the config directory location.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sadrive<span class="w"> </span>config<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>COMMAND<span class="w"> </span><span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<section id="sadrive-config-set-dir">
+<h4>set-dir<a class="headerlink" href="#sadrive-config-set-dir" title="Link to this heading">#</a></h4>
+<p>Sets and remembers the configuration directory.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>path: Filesystem path to use as the config directory.</dt><dd><p>Will be created if it does not exist.</p>
+</dd>
+</dl>
+</dd>
+<dt>Side Effects:</dt><dd><ul class="simple">
+<li><p>Creates the directory (including parents) if missing.</p></li>
+<li><p>Writes the resolved path to CONFIG_POINTER file.</p></li>
+<li><p>Prints a confirmation message.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sadrive<span class="w"> </span>config<span class="w"> </span>set-dir<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>PATH
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-sadrive-config-set-dir-arg-PATH">
+<span class="sig-name descname"><span class="pre">PATH</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-sadrive-config-set-dir-arg-PATH" title="Link to this definition">#</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+</section>
+<section id="sadrive-config-show">
+<h4>show<a class="headerlink" href="#sadrive-config-show" title="Link to this heading">#</a></h4>
+<p>Shows the currently configured directory.</p>
+<dl class="simple">
+<dt>Prints:</dt><dd><p>The path previously set by <cite>set_dir</cite>.</p>
+</dd>
+<dt>Raises:</dt><dd><p>RuntimeError: If no config directory has been set.</p>
+</dd>
+</dl>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sadrive<span class="w"> </span>config<span class="w"> </span>show<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="sadrive-delete">
+<h3>delete<a class="headerlink" href="#sadrive-delete" title="Link to this heading">#</a></h3>
+<p>CLI command to delete a file or folder by its ID.</p>
+<p>If the ID corresponds to a folder, deletion is recursive.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>fileid: The Drive ID of the file or folder.</p>
+</dd>
+<dt>Side Effects:</dt><dd><ul class="simple">
+<li><p>Removes the file/folder from Google Drive.</p></li>
+<li><p>Updates the local database to reflect deletion.</p></li>
+<li><p>Prints status messages to the console.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sadrive<span class="w"> </span>delete<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>FILEID
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-sadrive-delete-arg-FILEID">
+<span class="sig-name descname"><span class="pre">FILEID</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-sadrive-delete-arg-FILEID" title="Link to this definition">#</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+</section>
+<section id="sadrive-details">
+<h3>details<a class="headerlink" href="#sadrive-details" title="Link to this heading">#</a></h3>
+<p>Display storage usage details for all service accounts.</p>
+<p>Prints a table with occupied and free space per account.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sadrive<span class="w"> </span>details<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</section>
+<section id="sadrive-download">
+<h3>download<a class="headerlink" href="#sadrive-download" title="Link to this heading">#</a></h3>
+<p>Downloads a folder from the ‘sadrive’ remote by its ID.</p>
+<p>Uses the gclone executable configured via config to perform a multi-threaded
+copy with progress display.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>id: The Drive folder ID to copy from the remote.
+dest: Local destination directory path.
+–transfers: Number of parallel transfer threads (default 8).</p>
+</dd>
+<dt>Side Effects:</dt><dd><ul class="simple">
+<li><p>Invokes the gclone subprocess with constructed arguments.</p></li>
+<li><p>Prints success or error messages on completion.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sadrive<span class="w"> </span>download<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>ID<span class="w"> </span>DEST
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-sadrive-download-t">
+<span id="cmdoption-sadrive-download-transfers"></span><span class="sig-name descname"><span class="pre">-t</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--transfers</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;transfers&gt;</span></span><a class="headerlink" href="#cmdoption-sadrive-download-t" title="Link to this definition">#</a></dt>
+<dd><p>Number of concurrent transfers</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">8</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-sadrive-download-arg-ID">
+<span class="sig-name descname"><span class="pre">ID</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-sadrive-download-arg-ID" title="Link to this definition">#</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-sadrive-download-arg-DEST">
+<span class="sig-name descname"><span class="pre">DEST</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-sadrive-download-arg-DEST" title="Link to this definition">#</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+</section>
+<section id="sadrive-mount">
+<h3>mount<a class="headerlink" href="#sadrive-mount" title="Link to this heading">#</a></h3>
+<p>Mount the SA-Drive remote locally using the gclone tool.</p>
+<p>Detects the assigned drive letter, opens Explorer, and keeps the mount
+until user interrupts (Ctrl+C).</p>
+<dl class="simple">
+<dt>Side Effects:</dt><dd><ul class="simple">
+<li><p>Runs ‘gclone mount’ subprocess with vfs caching options.</p></li>
+<li><p>Streams stderr to console to detect mount point.</p></li>
+<li><p>Opens a file browser at the mounted drive letter.</p></li>
+<li><p>Terminates on user interrupt.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sadrive<span class="w"> </span>mount<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</section>
+<section id="sadrive-navigate">
+<h3>navigate<a class="headerlink" href="#sadrive-navigate" title="Link to this heading">#</a></h3>
+<p>CLI command to launch interactive navigation of SA-Drive.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>folderid: Starting Drive folder ID (defaults to root).</p>
+</dd>
+<dt>Behavior:</dt><dd><p>Loops until user selects ‘exit’. Uses navigatehelp to traverse hierarchy.</p>
+</dd>
+</dl>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sadrive<span class="w"> </span>navigate<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span><span class="o">[</span>FOLDERID<span class="o">]</span>
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-sadrive-navigate-arg-FOLDERID">
+<span class="sig-name descname"><span class="pre">FOLDERID</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-sadrive-navigate-arg-FOLDERID" title="Link to this definition">#</a></dt>
+<dd><p>Optional argument</p>
+</dd></dl>
+
+</section>
+<section id="sadrive-newfolder">
+<h3>newfolder<a class="headerlink" href="#sadrive-newfolder" title="Link to this heading">#</a></h3>
+<p>Create a folder in SA-Drive at the given destination ID.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>name: Name of the new folder to create.
+destination: Drive folder ID under which to create (default: root).</p>
+</dd>
+<dt>Side Effects:</dt><dd><ul class="simple">
+<li><p>Calls Drive API to create the folder.</p></li>
+<li><p>Inserts the folder record into local DB.</p></li>
+<li><p>Prints the new folder ID.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sadrive<span class="w"> </span>newfolder<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>NAME<span class="w"> </span><span class="o">[</span>DESTINATION<span class="o">]</span>
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-sadrive-newfolder-arg-NAME">
+<span class="sig-name descname"><span class="pre">NAME</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-sadrive-newfolder-arg-NAME" title="Link to this definition">#</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-sadrive-newfolder-arg-DESTINATION">
+<span class="sig-name descname"><span class="pre">DESTINATION</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-sadrive-newfolder-arg-DESTINATION" title="Link to this definition">#</a></dt>
+<dd><p>Optional argument</p>
+</dd></dl>
+
+</section>
+<section id="sadrive-open-link">
+<h3>open-link<a class="headerlink" href="#sadrive-open-link" title="Link to this heading">#</a></h3>
+<p>Open the given file or folder ID in the default web browser.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>id: Drive item ID.</p>
+</dd>
+<dt>Side Effects:</dt><dd><ul class="simple">
+<li><p>Launches browser to the Drive open URL.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sadrive<span class="w"> </span>open-link<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>ID
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-sadrive-open-link-arg-ID">
+<span class="sig-name descname"><span class="pre">ID</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-sadrive-open-link-arg-ID" title="Link to this definition">#</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+</section>
+<section id="sadrive-rebuild">
+<h3>rebuild<a class="headerlink" href="#sadrive-rebuild" title="Link to this heading">#</a></h3>
+<p>Rebuilds a file split into “.sapart” parts based on a manifest.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>path: Filesystem path to the “.sapart” directory containing part files</dt><dd><p>and a “.sapart.manifest.json” manifest.</p>
+</dd>
+</dl>
+</dd>
+<dt>Raises:</dt><dd><p>FileNotFoundError: If any expected part file is missing during rebuild.</p>
+</dd>
+<dt>Side Effects:</dt><dd><ul class="simple">
+<li><p>Reads the manifest to obtain original filename and part order.</p></li>
+<li><p>Concatenates each part into the rebuilt file in the parent directory.</p></li>
+<li><p>Removes the original “.sapart” directory upon success.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sadrive<span class="w"> </span>rebuild<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>PATH
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-sadrive-rebuild-arg-PATH">
+<span class="sig-name descname"><span class="pre">PATH</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-sadrive-rebuild-arg-PATH" title="Link to this definition">#</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+</section>
+<section id="sadrive-rename">
+<h3>rename<a class="headerlink" href="#sadrive-rename" title="Link to this heading">#</a></h3>
+<p>Rename a Drive file or folder.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>newname: New name for the item.
+id: Drive item ID to rename.</p>
+</dd>
+<dt>Side Effects:</dt><dd><ul class="simple">
+<li><p>Calls Drive API to rename.</p></li>
+<li><p>Updates local DB record.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sadrive<span class="w"> </span>rename<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>NEWNAME<span class="w"> </span>ID
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-sadrive-rename-arg-NEWNAME">
+<span class="sig-name descname"><span class="pre">NEWNAME</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-sadrive-rename-arg-NEWNAME" title="Link to this definition">#</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-sadrive-rename-arg-ID">
+<span class="sig-name descname"><span class="pre">ID</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-sadrive-rename-arg-ID" title="Link to this definition">#</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+</section>
+<section id="sadrive-search">
+<h3>search<a class="headerlink" href="#sadrive-search" title="Link to this heading">#</a></h3>
+<p>Search the SA-Drive for files or folders by name.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>name: Substring to search for.
+fuzzy: If True, use Drive API fuzzy search; else database LIKE search.</p>
+</dd>
+<dt>Side Effects:</dt><dd><ul class="simple">
+<li><p>Prompts user to select a result interactively.</p></li>
+<li><p>Opens the selected item in browser via <cite>open_link</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sadrive<span class="w"> </span>search<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>NAME<span class="w"> </span><span class="o">[</span>FUZZY<span class="o">]</span>
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-sadrive-search-arg-NAME">
+<span class="sig-name descname"><span class="pre">NAME</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-sadrive-search-arg-NAME" title="Link to this definition">#</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-sadrive-search-arg-FUZZY">
+<span class="sig-name descname"><span class="pre">FUZZY</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-sadrive-search-arg-FUZZY" title="Link to this definition">#</a></dt>
+<dd><p>Optional argument</p>
+</dd></dl>
+
+</section>
+<section id="sadrive-share">
+<h3>share<a class="headerlink" href="#sadrive-share" title="Link to this heading">#</a></h3>
+<p>Share a file or folder (recursive) with anyone.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>id: Drive item ID to share (default: root).</p>
+</dd>
+<dt>Side Effects:</dt><dd><ul class="simple">
+<li><p>Updates sharing permissions via Drive API.</p></li>
+<li><p>Updates local DB share flags.</p></li>
+<li><p>Prints the shareable link.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sadrive<span class="w"> </span>share<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span><span class="o">[</span>ID<span class="o">]</span>
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-sadrive-share-arg-ID">
+<span class="sig-name descname"><span class="pre">ID</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-sadrive-share-arg-ID" title="Link to this definition">#</a></dt>
+<dd><p>Optional argument</p>
+</dd></dl>
+
+</section>
+<section id="sadrive-update-sas">
+<h3>update-sas<a class="headerlink" href="#sadrive-update-sas" title="Link to this heading">#</a></h3>
+<p>Synchronize service account usage with the database.</p>
+<p>Scans the local accounts directory and the database to find any
+service accounts not yet recorded and adds them with zero usage.
+Then, for all accounts in the database, concurrently fetches the
+actual used storage from Google Drive and updates the size map in
+sync mode (overwriting previous values).</p>
+<dl class="simple">
+<dt>Side Effects:</dt><dd><ul class="simple">
+<li><p>Inserts missing service accounts into <cite>sa_size_map</cite> via <cite>dbf.insert_size_map</cite>.</p></li>
+<li><p>Updates each service account’s <cite>size</cite> field to the Drive API value via <cite>dbf.add_size(syncing=True)</cite>.</p></li>
+<li><p>Prints status messages to stdout and echoes completion via Click.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sadrive<span class="w"> </span>update-sas<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</section>
+<section id="sadrive-upload">
+<h3>upload<a class="headerlink" href="#sadrive-upload" title="Link to this heading">#</a></h3>
+<p>Upload a folder or file to SA-Drive at a specified destination folder ID.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>ctx: Click context for invoking subcommands.
+path: Local filesystem path to the file or directory to upload.
+destination: Drive folder ID where the content will be uploaded (default: root).</p>
+</dd>
+<dt>Behavior:</dt><dd><ul class="simple">
+<li><p>Determines if <cite>path</cite> is a file or directory.</p></li>
+<li><p>For files larger than single-account capacity, splits into parts and uploads.</p></li>
+<li><p>For directories, reflects structure on SA-Drive and uploads all contents.</p></li>
+<li><p>Updates local database mappings and service account usage.</p></li>
+<li><p>Provides real-time progress via Rich.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sadrive<span class="w"> </span>upload<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>PATH<span class="w"> </span><span class="o">[</span>DESTINATION<span class="o">]</span>
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-sadrive-upload-arg-PATH">
+<span class="sig-name descname"><span class="pre">PATH</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-sadrive-upload-arg-PATH" title="Link to this definition">#</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-sadrive-upload-arg-DESTINATION">
+<span class="sig-name descname"><span class="pre">DESTINATION</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-sadrive-upload-arg-DESTINATION" title="Link to this definition">#</a></dt>
+<dd><p>Optional argument</p>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Sadrive Documentation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="apireference.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">API Reference</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sadrive">sadrive</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sadrive-clearall">clearall</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sadrive-config">config</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sadrive-config-set-dir">set-dir</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sadrive-config-show">show</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sadrive-delete">delete</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sadrive-details">details</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sadrive-download">download</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sadrive-mount">mount</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sadrive-navigate">navigate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sadrive-newfolder">newfolder</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sadrive-open-link">open-link</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sadrive-rebuild">rebuild</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sadrive-rename">rename</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sadrive-search">search</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sadrive-share">share</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sadrive-update-sas">update-sas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sadrive-upload">upload</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/interface.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, jsmaskeen.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

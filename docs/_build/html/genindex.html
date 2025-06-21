@@ -1,0 +1,963 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index &#8212; sadrive 2.0.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=51b770b3"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'genindex';</script>
+    <link rel="index" title="Index" href="#" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">sadrive 2.0.0 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="interface.html">
+    Command-Line Interface
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="apireference.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="interface.html">
+    Command-Line Interface
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="apireference.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none"></div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+
+<h1 id="index">Index</h1>
+
+<div class="genindex-jumpbox">
+ <a href="#Symbols"><strong>Symbols</strong></a>
+ | <a href="#_"><strong>_</strong></a>
+ | <a href="#A"><strong>A</strong></a>
+ | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#H"><strong>H</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#J"><strong>J</strong></a>
+ | <a href="#L"><strong>L</strong></a>
+ | <a href="#M"><strong>M</strong></a>
+ | <a href="#N"><strong>N</strong></a>
+ | <a href="#O"><strong>O</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
+ | <a href="#U"><strong>U</strong></a>
+ 
+</div>
+<h2 id="Symbols">Symbols</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    --transfers
+
+      <ul>
+        <li><a href="interface.html#cmdoption-sadrive-download-t">sadrive-download command line option</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    -t
+
+      <ul>
+        <li><a href="interface.html#cmdoption-sadrive-download-t">sadrive-download command line option</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="_">_</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/sadrive.commands.upload.html#sadrive.commands.upload.UploadThread._return">_return (sadrive.commands.upload.UploadThread attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="A">A</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/sadrive.helpers.dbf.html#sadrive.helpers.dbf.add_size">add_size() (in module sadrive.helpers.dbf)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/sadrive.helpers.drive.html#id0">auth (sadrive.helpers.drive.PatchedDrive attribute)</a>, <a href="modules/sadrive.helpers.drive.html#sadrive.helpers.drive.PatchedDrive.auth">[1]</a>
+</li>
+      <li><a href="modules/sadrive.helpers.drive.html#sadrive.helpers.drive.SADrive.authorise">authorise() (sadrive.helpers.drive.SADrive method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/sadrive.helpers.dbf.html#sadrive.helpers.dbf.clear_file_map">clear_file_map() (in module sadrive.helpers.dbf)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/sadrive.helpers.drive.html#sadrive.helpers.drive.SADrive.create_folder">create_folder() (sadrive.helpers.drive.SADrive method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/sadrive.commands.delete.html#sadrive.commands.delete.del_file">del_file() (in module sadrive.commands.delete)</a>
+</li>
+      <li><a href="modules/sadrive.commands.delete.html#sadrive.commands.delete.del_folder">del_folder() (in module sadrive.commands.delete)</a>
+</li>
+      <li><a href="modules/sadrive.helpers.drive.html#sadrive.helpers.drive.SADrive.delete_all_files">delete_all_files() (sadrive.helpers.drive.SADrive method)</a>
+</li>
+      <li><a href="modules/sadrive.helpers.dbf.html#sadrive.helpers.dbf.delete_file">delete_file() (in module sadrive.helpers.dbf)</a>
+
+      <ul>
+        <li><a href="modules/sadrive.helpers.drive.html#sadrive.helpers.drive.SADrive.delete_file">(sadrive.helpers.drive.SADrive method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    DEST
+
+      <ul>
+        <li><a href="interface.html#cmdoption-sadrive-download-arg-DEST">sadrive-download command line option</a>
+</li>
+      </ul></li>
+      <li>
+    DESTINATION
+
+      <ul>
+        <li><a href="interface.html#cmdoption-sadrive-newfolder-arg-DESTINATION">sadrive-newfolder command line option</a>
+</li>
+        <li><a href="interface.html#cmdoption-sadrive-upload-arg-DESTINATION">sadrive-upload command line option</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/sadrive.helpers.utils.html#sadrive.helpers.utils.FF">FF (class in sadrive.helpers.utils)</a>
+</li>
+      <li><a href="modules/sadrive.helpers.utils.html#sadrive.helpers.utils.FF.file_id">file_id (sadrive.helpers.utils.FF attribute)</a>
+</li>
+      <li>
+    FILEID
+
+      <ul>
+        <li><a href="interface.html#cmdoption-sadrive-delete-arg-FILEID">sadrive-delete command line option</a>
+</li>
+      </ul></li>
+      <li><a href="modules/sadrive.helpers.utils.html#id2">filename (sadrive.helpers.utils.PartInfo attribute)</a>, <a href="modules/sadrive.helpers.utils.html#sadrive.helpers.utils.PartInfo.filename">[1]</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/sadrive.helpers.dbf.html#sadrive.helpers.dbf.find_children">find_children() (in module sadrive.helpers.dbf)</a>
+</li>
+      <li><a href="modules/sadrive.helpers.dbf.html#sadrive.helpers.dbf.folder_exists">folder_exists() (in module sadrive.helpers.dbf)</a>
+</li>
+      <li>
+    FOLDERID
+
+      <ul>
+        <li><a href="interface.html#cmdoption-sadrive-navigate-arg-FOLDERID">sadrive-navigate command line option</a>
+</li>
+      </ul></li>
+      <li>
+    FUZZY
+
+      <ul>
+        <li><a href="interface.html#cmdoption-sadrive-search-arg-FUZZY">sadrive-search command line option</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/sadrive.helpers.utils.html#sadrive.helpers.utils.Generator.gen">gen (sadrive.helpers.utils.Generator attribute)</a>
+</li>
+      <li><a href="modules/sadrive.helpers.utils.html#sadrive.helpers.utils.Generator">Generator (class in sadrive.helpers.utils)</a>
+</li>
+      <li><a href="modules/sadrive.helpers.utils.html#sadrive.helpers.utils.get_accounts_path">get_accounts_path() (in module sadrive.helpers.utils)</a>
+</li>
+      <li><a href="modules/sadrive.helpers.utils.html#sadrive.helpers.utils.get_config_dir">get_config_dir() (in module sadrive.helpers.utils)</a>
+</li>
+      <li><a href="modules/sadrive.helpers.dbf.html#sadrive.helpers.dbf.get_connection">get_connection() (in module sadrive.helpers.dbf)</a>
+</li>
+      <li><a href="modules/sadrive.helpers.utils.html#sadrive.helpers.utils.get_database_path">get_database_path() (in module sadrive.helpers.utils)</a>
+</li>
+      <li><a href="modules/sadrive.helpers.utils.html#sadrive.helpers.utils.get_dir_structure">get_dir_structure() (in module sadrive.helpers.utils)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/sadrive.helpers.dbf.html#sadrive.helpers.dbf.get_file_details">get_file_details() (in module sadrive.helpers.dbf)</a>
+</li>
+      <li><a href="modules/sadrive.helpers.utils.html#sadrive.helpers.utils.get_file_size">get_file_size() (in module sadrive.helpers.utils)</a>
+</li>
+      <li><a href="modules/sadrive.helpers.utils.html#sadrive.helpers.utils.get_free_sa">get_free_sa() (in module sadrive.helpers.utils)</a>
+</li>
+      <li><a href="modules/sadrive.helpers.utils.html#sadrive.helpers.utils.get_gclone_exe">get_gclone_exe() (in module sadrive.helpers.utils)</a>
+</li>
+      <li><a href="modules/sadrive.helpers.utils.html#sadrive.helpers.utils.get_parent_id">get_parent_id() (in module sadrive.helpers.utils)</a>
+</li>
+      <li><a href="modules/sadrive.helpers.dbf.html#sadrive.helpers.dbf.get_sa_num">get_sa_num() (in module sadrive.helpers.dbf)</a>
+</li>
+      <li><a href="modules/sadrive.helpers.dbf.html#sadrive.helpers.dbf.get_sa_size_taken">get_sa_size_taken() (in module sadrive.helpers.dbf)</a>
+</li>
+      <li><a href="modules/sadrive.helpers.dbf.html#sadrive.helpers.dbf.get_size_map">get_size_map() (in module sadrive.helpers.dbf)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="H">H</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/sadrive.helpers.utils.html#sadrive.helpers.utils.humanbytes">humanbytes() (in module sadrive.helpers.utils)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/sadrive.helpers.utils.html#sadrive.helpers.utils.humantime">humantime() (in module sadrive.helpers.utils)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    ID
+
+      <ul>
+        <li><a href="interface.html#cmdoption-sadrive-download-arg-ID">sadrive-download command line option</a>
+</li>
+        <li><a href="interface.html#cmdoption-sadrive-open-link-arg-ID">sadrive-open-link command line option</a>
+</li>
+        <li><a href="interface.html#cmdoption-sadrive-rename-arg-ID">sadrive-rename command line option</a>
+</li>
+        <li><a href="interface.html#cmdoption-sadrive-share-arg-ID">sadrive-share command line option</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/sadrive.helpers.dbf.html#sadrive.helpers.dbf.insert_file">insert_file() (in module sadrive.helpers.dbf)</a>
+</li>
+      <li><a href="modules/sadrive.helpers.dbf.html#sadrive.helpers.dbf.insert_size_map">insert_size_map() (in module sadrive.helpers.dbf)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="J">J</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/sadrive.commands.upload.html#id0">join() (sadrive.commands.upload.UploadThread method)</a>, <a href="modules/sadrive.commands.upload.html#sadrive.commands.upload.UploadThread.join">[1]</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/sadrive.helpers.drive.html#sadrive.helpers.drive.SADrive.list_files">list_files() (sadrive.helpers.drive.SADrive method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/sadrive.helpers.utils.html#sadrive.helpers.utils.list_into_n_parts">list_into_n_parts() (in module sadrive.helpers.utils)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/sadrive.helpers.utils.html#sadrive.helpers.utils.Manifest">Manifest (class in sadrive.helpers.utils)</a>
+</li>
+      <li>
+    module
+
+      <ul>
+        <li><a href="modules/sadrive.cli.html#module-sadrive.cli">sadrive.cli</a>
+</li>
+        <li><a href="modules/sadrive.commands.html#module-sadrive.commands">sadrive.commands</a>
+</li>
+        <li><a href="modules/sadrive.commands.config.html#module-sadrive.commands.config">sadrive.commands.config</a>
+</li>
+        <li><a href="modules/sadrive.commands.db.html#module-sadrive.commands.db">sadrive.commands.db</a>
+</li>
+        <li><a href="modules/sadrive.commands.delete.html#module-sadrive.commands.delete">sadrive.commands.delete</a>
+</li>
+        <li><a href="modules/sadrive.commands.downlaod.html#module-sadrive.commands.downlaod">sadrive.commands.downlaod</a>
+</li>
+        <li><a href="modules/sadrive.commands.manipulation.html#module-sadrive.commands.manipulation">sadrive.commands.manipulation</a>
+</li>
+        <li><a href="modules/sadrive.commands.navigate.html#module-sadrive.commands.navigate">sadrive.commands.navigate</a>
+</li>
+        <li><a href="modules/sadrive.commands.upload.html#module-sadrive.commands.upload">sadrive.commands.upload</a>
+</li>
+        <li><a href="modules/sadrive.helpers.html#module-sadrive.helpers">sadrive.helpers</a>
+</li>
+        <li><a href="modules/sadrive.helpers.dbf.html#module-sadrive.helpers.dbf">sadrive.helpers.dbf</a>
+</li>
+        <li><a href="modules/sadrive.helpers.drive.html#module-sadrive.helpers.drive">sadrive.helpers.drive</a>
+</li>
+        <li><a href="modules/sadrive.helpers.utils.html#module-sadrive.helpers.utils">sadrive.helpers.utils</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="N">N</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    NAME
+
+      <ul>
+        <li><a href="interface.html#cmdoption-sadrive-newfolder-arg-NAME">sadrive-newfolder command line option</a>
+</li>
+        <li><a href="interface.html#cmdoption-sadrive-search-arg-NAME">sadrive-search command line option</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/sadrive.helpers.utils.html#sadrive.helpers.utils.FF.name">name (sadrive.helpers.utils.FF attribute)</a>
+</li>
+      <li><a href="modules/sadrive.commands.navigate.html#sadrive.commands.navigate.navigatehelp">navigatehelp() (in module sadrive.commands.navigate)</a>
+</li>
+      <li>
+    NEWNAME
+
+      <ul>
+        <li><a href="interface.html#cmdoption-sadrive-rename-arg-NEWNAME">sadrive-rename command line option</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="O">O</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/sadrive.helpers.utils.html#id0">original_filename (sadrive.helpers.utils.Manifest attribute)</a>, <a href="modules/sadrive.helpers.utils.html#sadrive.helpers.utils.Manifest.original_filename">[1]</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/sadrive.helpers.utils.html#sadrive.helpers.utils.FF.parent_id">parent_id (sadrive.helpers.utils.FF attribute)</a>
+</li>
+      <li><a href="modules/sadrive.helpers.utils.html#sadrive.helpers.utils.PartInfo">PartInfo (class in sadrive.helpers.utils)</a>
+</li>
+      <li><a href="modules/sadrive.helpers.utils.html#id1">parts (sadrive.helpers.utils.Manifest attribute)</a>, <a href="modules/sadrive.helpers.utils.html#sadrive.helpers.utils.Manifest.parts">[1]</a>
+</li>
+      <li><a href="modules/sadrive.helpers.drive.html#sadrive.helpers.drive.PatchedDrive">PatchedDrive (class in sadrive.helpers.drive)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    PATH
+
+      <ul>
+        <li><a href="interface.html#cmdoption-sadrive-config-set-dir-arg-PATH">sadrive-config-set-dir command line option</a>
+</li>
+        <li><a href="interface.html#cmdoption-sadrive-rebuild-arg-PATH">sadrive-rebuild command line option</a>
+</li>
+        <li><a href="interface.html#cmdoption-sadrive-upload-arg-PATH">sadrive-upload command line option</a>
+</li>
+      </ul></li>
+      <li><a href="modules/sadrive.commands.upload.html#sadrive.commands.upload.prepare_sapart_jobs">prepare_sapart_jobs() (in module sadrive.commands.upload)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/sadrive.commands.upload.html#sadrive.commands.upload.reflect_structure_on_sadrive">reflect_structure_on_sadrive() (in module sadrive.commands.upload)</a>
+</li>
+      <li><a href="modules/sadrive.helpers.dbf.html#sadrive.helpers.dbf.remove_size">remove_size() (in module sadrive.helpers.dbf)</a>
+</li>
+      <li><a href="modules/sadrive.helpers.drive.html#sadrive.helpers.drive.SADrive.rename">rename() (sadrive.helpers.drive.SADrive method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/sadrive.helpers.dbf.html#sadrive.helpers.dbf.rename_file">rename_file() (in module sadrive.helpers.dbf)</a>
+</li>
+      <li><a href="modules/sadrive.helpers.dbf.html#sadrive.helpers.dbf.reset_sa_sizes">reset_sa_sizes() (in module sadrive.helpers.dbf)</a>
+</li>
+      <li><a href="modules/sadrive.commands.upload.html#id1">run() (sadrive.commands.upload.UploadThread method)</a>, <a href="modules/sadrive.commands.upload.html#sadrive.commands.upload.UploadThread.run">[1]</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/sadrive.helpers.drive.html#sadrive.helpers.drive.SADrive">SADrive (class in sadrive.helpers.drive)</a>
+</li>
+      <li>
+    sadrive-config-set-dir command line option
+
+      <ul>
+        <li><a href="interface.html#cmdoption-sadrive-config-set-dir-arg-PATH">PATH</a>
+</li>
+      </ul></li>
+      <li>
+    sadrive-delete command line option
+
+      <ul>
+        <li><a href="interface.html#cmdoption-sadrive-delete-arg-FILEID">FILEID</a>
+</li>
+      </ul></li>
+      <li>
+    sadrive-download command line option
+
+      <ul>
+        <li><a href="interface.html#cmdoption-sadrive-download-t">--transfers</a>
+</li>
+        <li><a href="interface.html#cmdoption-sadrive-download-t">-t</a>
+</li>
+        <li><a href="interface.html#cmdoption-sadrive-download-arg-DEST">DEST</a>
+</li>
+        <li><a href="interface.html#cmdoption-sadrive-download-arg-ID">ID</a>
+</li>
+      </ul></li>
+      <li>
+    sadrive-navigate command line option
+
+      <ul>
+        <li><a href="interface.html#cmdoption-sadrive-navigate-arg-FOLDERID">FOLDERID</a>
+</li>
+      </ul></li>
+      <li>
+    sadrive-newfolder command line option
+
+      <ul>
+        <li><a href="interface.html#cmdoption-sadrive-newfolder-arg-DESTINATION">DESTINATION</a>
+</li>
+        <li><a href="interface.html#cmdoption-sadrive-newfolder-arg-NAME">NAME</a>
+</li>
+      </ul></li>
+      <li>
+    sadrive-open-link command line option
+
+      <ul>
+        <li><a href="interface.html#cmdoption-sadrive-open-link-arg-ID">ID</a>
+</li>
+      </ul></li>
+      <li>
+    sadrive-rebuild command line option
+
+      <ul>
+        <li><a href="interface.html#cmdoption-sadrive-rebuild-arg-PATH">PATH</a>
+</li>
+      </ul></li>
+      <li>
+    sadrive-rename command line option
+
+      <ul>
+        <li><a href="interface.html#cmdoption-sadrive-rename-arg-ID">ID</a>
+</li>
+        <li><a href="interface.html#cmdoption-sadrive-rename-arg-NEWNAME">NEWNAME</a>
+</li>
+      </ul></li>
+      <li>
+    sadrive-search command line option
+
+      <ul>
+        <li><a href="interface.html#cmdoption-sadrive-search-arg-FUZZY">FUZZY</a>
+</li>
+        <li><a href="interface.html#cmdoption-sadrive-search-arg-NAME">NAME</a>
+</li>
+      </ul></li>
+      <li>
+    sadrive-share command line option
+
+      <ul>
+        <li><a href="interface.html#cmdoption-sadrive-share-arg-ID">ID</a>
+</li>
+      </ul></li>
+      <li>
+    sadrive-upload command line option
+
+      <ul>
+        <li><a href="interface.html#cmdoption-sadrive-upload-arg-DESTINATION">DESTINATION</a>
+</li>
+        <li><a href="interface.html#cmdoption-sadrive-upload-arg-PATH">PATH</a>
+</li>
+      </ul></li>
+      <li>
+    sadrive.cli
+
+      <ul>
+        <li><a href="modules/sadrive.cli.html#module-sadrive.cli">module</a>
+</li>
+      </ul></li>
+      <li>
+    sadrive.commands
+
+      <ul>
+        <li><a href="modules/sadrive.commands.html#module-sadrive.commands">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    sadrive.commands.config
+
+      <ul>
+        <li><a href="modules/sadrive.commands.config.html#module-sadrive.commands.config">module</a>
+</li>
+      </ul></li>
+      <li>
+    sadrive.commands.db
+
+      <ul>
+        <li><a href="modules/sadrive.commands.db.html#module-sadrive.commands.db">module</a>
+</li>
+      </ul></li>
+      <li>
+    sadrive.commands.delete
+
+      <ul>
+        <li><a href="modules/sadrive.commands.delete.html#module-sadrive.commands.delete">module</a>
+</li>
+      </ul></li>
+      <li>
+    sadrive.commands.downlaod
+
+      <ul>
+        <li><a href="modules/sadrive.commands.downlaod.html#module-sadrive.commands.downlaod">module</a>
+</li>
+      </ul></li>
+      <li>
+    sadrive.commands.manipulation
+
+      <ul>
+        <li><a href="modules/sadrive.commands.manipulation.html#module-sadrive.commands.manipulation">module</a>
+</li>
+      </ul></li>
+      <li>
+    sadrive.commands.navigate
+
+      <ul>
+        <li><a href="modules/sadrive.commands.navigate.html#module-sadrive.commands.navigate">module</a>
+</li>
+      </ul></li>
+      <li>
+    sadrive.commands.upload
+
+      <ul>
+        <li><a href="modules/sadrive.commands.upload.html#module-sadrive.commands.upload">module</a>
+</li>
+      </ul></li>
+      <li>
+    sadrive.helpers
+
+      <ul>
+        <li><a href="modules/sadrive.helpers.html#module-sadrive.helpers">module</a>
+</li>
+      </ul></li>
+      <li>
+    sadrive.helpers.dbf
+
+      <ul>
+        <li><a href="modules/sadrive.helpers.dbf.html#module-sadrive.helpers.dbf">module</a>
+</li>
+      </ul></li>
+      <li>
+    sadrive.helpers.drive
+
+      <ul>
+        <li><a href="modules/sadrive.helpers.drive.html#module-sadrive.helpers.drive">module</a>
+</li>
+      </ul></li>
+      <li>
+    sadrive.helpers.utils
+
+      <ul>
+        <li><a href="modules/sadrive.helpers.utils.html#module-sadrive.helpers.utils">module</a>
+</li>
+      </ul></li>
+      <li><a href="modules/sadrive.helpers.drive.html#sadrive.helpers.drive.SADrive.search">search() (sadrive.helpers.drive.SADrive method)</a>
+</li>
+      <li><a href="modules/sadrive.commands.manipulation.html#sadrive.commands.manipulation.search_for_file">search_for_file() (in module sadrive.commands.manipulation)</a>
+</li>
+      <li><a href="modules/sadrive.helpers.dbf.html#sadrive.helpers.dbf.search_for_file_contains">search_for_file_contains() (in module sadrive.helpers.dbf)</a>
+</li>
+      <li><a href="modules/sadrive.commands.upload.html#sadrive.commands.upload.sem_upload_wrapper">sem_upload_wrapper() (in module sadrive.commands.upload)</a>
+</li>
+      <li><a href="modules/sadrive.helpers.utils.html#sadrive.helpers.utils.set_rclone_conf">set_rclone_conf() (in module sadrive.helpers.utils)</a>
+</li>
+      <li><a href="modules/sadrive.helpers.drive.html#sadrive.helpers.drive.SADrive.share">share() (sadrive.helpers.drive.SADrive method)</a>
+</li>
+      <li><a href="modules/sadrive.helpers.dbf.html#sadrive.helpers.dbf.share_file">share_file() (in module sadrive.helpers.dbf)</a>
+</li>
+      <li><a href="modules/sadrive.commands.manipulation.html#sadrive.commands.manipulation.share_file_base">share_file_base() (in module sadrive.commands.manipulation)</a>
+</li>
+      <li><a href="modules/sadrive.commands.manipulation.html#sadrive.commands.manipulation.share_folder_recursive">share_folder_recursive() (in module sadrive.commands.manipulation)</a>
+</li>
+      <li><a href="modules/sadrive.helpers.utils.html#sadrive.helpers.utils.shorten_fn">shorten_fn() (in module sadrive.helpers.utils)</a>
+</li>
+      <li><a href="modules/sadrive.helpers.utils.html#id3">size (sadrive.helpers.utils.PartInfo attribute)</a>, <a href="modules/sadrive.helpers.utils.html#sadrive.helpers.utils.PartInfo.size">[1]</a>
+</li>
+      <li><a href="modules/sadrive.helpers.dbf.html#sadrive.helpers.dbf.space_details">space_details() (in module sadrive.helpers.dbf)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/sadrive.helpers.utils.html#sadrive.helpers.utils.FF.type">type (sadrive.helpers.utils.FF attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="U">U</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/sadrive.helpers.drive.html#sadrive.helpers.drive.SADrive.unshare">unshare() (sadrive.helpers.drive.SADrive method)</a>
+</li>
+      <li><a href="modules/sadrive.commands.upload.html#sadrive.commands.upload.upload_file">upload_file() (in module sadrive.commands.upload)</a>
+
+      <ul>
+        <li><a href="modules/sadrive.helpers.drive.html#sadrive.helpers.drive.SADrive.upload_file">(sadrive.helpers.drive.SADrive method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/sadrive.commands.upload.html#sadrive.commands.upload.UploadThread">UploadThread (class in sadrive.commands.upload)</a>
+</li>
+      <li><a href="modules/sadrive.helpers.drive.html#sadrive.helpers.drive.SADrive.used_space">used_space() (sadrive.helpers.drive.SADrive method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, jsmaskeen.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

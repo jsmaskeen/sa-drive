@@ -1,0 +1,748 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sadrive.helpers.utils &#8212; sadrive 2.0.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/documentation_options.js?v=51b770b3"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/sadrive/helpers/utils';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">sadrive 2.0.0 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../interface.html">
+    Command-Line Interface
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../apireference.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../interface.html">
+    Command-Line Interface
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../apireference.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">sadrive.helpers.utils</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for sadrive.helpers.utils</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This module provides helper functions and utilities for the CLI application.</span>
+<span class="sd">It uses service account storage for Google Drive operations and offers:</span>
+
+<span class="sd">- Configuration directory handling</span>
+<span class="sd">- Path construction for accounts and database</span>
+<span class="sd">- Rclone configuration initialization</span>
+<span class="sd">- Human-readable byte and time formatting</span>
+<span class="sd">- List partitioning</span>
+<span class="sd">- Generator wrapper</span>
+<span class="sd">- Service account selection by free space</span>
+<span class="sd">- Directory tree mapping</span>
+<span class="sd">- File size measurement</span>
+<span class="sd">- Filename shortening</span>
+
+<span class="sd">Constants:</span>
+<span class="sd">- CONFIG_POINTER: Path to the file storing the config directory pointer</span>
+<span class="sd">- MAGIC_SIZE: Total capacity threshold for service accounts (in bytes)</span>
+<span class="sd">- BUFFER: Buffer size threshold (in bytes)</span>
+<span class="sd">- MAX_THREADS: Maximum number of threads permitted</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">ceil</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">TypeVar</span><span class="p">,</span><span class="n">Any</span><span class="p">,</span><span class="n">Union</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span><span class="n">TypedDict</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="n">T</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">)</span>
+
+<span class="n">DirTree</span> <span class="o">=</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="s1">&#39;DirTree&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]</span>
+
+<div class="viewcode-block" id="PartInfo">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.utils.html#sadrive.helpers.utils.PartInfo">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">PartInfo</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Information about a part of a split file.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        filename: Name of the file part.</span>
+<span class="sd">        size: Size of the file part in bytes.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">size</span><span class="p">:</span> <span class="nb">int</span></div>
+
+
+<div class="viewcode-block" id="Manifest">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.utils.html#sadrive.helpers.utils.Manifest">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Manifest</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Manifest describing an original file and its parts.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        original_filename: The original filename before splitting.</span>
+<span class="sd">        parts: A list of PartInfo dictionaries for each part.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">original_filename</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">parts</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">PartInfo</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="FF">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.utils.html#sadrive.helpers.utils.FF">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">FF</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Represents a file or folder entry in Google Drive.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        name: The display name of the file or folder.</span>
+<span class="sd">        file_id: The unique identifier in Drive.</span>
+<span class="sd">        parent_id: The parent folder&#39;s identifier.</span>
+<span class="sd">        type: The entry type, e.g. &#39;folder&#39; or &#39;file&#39;.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">file_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">parent_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">type</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes an FF object.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            name: Display name of the file/folder.</span>
+<span class="sd">            file_id: Unique identifier in Drive.</span>
+<span class="sd">            parent_id: Identifier of the parent folder.</span>
+<span class="sd">            type: &#39;folder&#39; or &#39;file&#39;.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">file_id</span> <span class="o">=</span> <span class="n">file_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parent_id</span> <span class="o">=</span> <span class="n">parent_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="nb">type</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a human-readable representation of the entry.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A formatted string including type, ID, and name.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="si">}</span><span class="s2">] [</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">file_id</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span></div>
+
+
+<span class="n">CONFIG_POINTER</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">home</span><span class="p">()</span> <span class="o">/</span> <span class="s2">&quot;.sadrive_config_dir&quot;</span>
+<span class="n">MAGIC_SIZE</span> <span class="o">=</span> <span class="mi">15784004812</span>
+<span class="n">BUFFER</span> <span class="o">=</span> <span class="mi">250</span> <span class="o">*</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span>
+<span class="n">MAX_THREADS</span> <span class="o">=</span> <span class="mi">10</span>
+
+<div class="viewcode-block" id="get_config_dir">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.utils.html#sadrive.helpers.utils.get_config_dir">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_config_dir</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retrieves the configuration directory path from CONFIG_POINTER.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        RuntimeError: If the pointer file is missing or the stored path is invalid.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Path: The directory used for storing application config files.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">CONFIG_POINTER</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="n">config_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">CONFIG_POINTER</span><span class="o">.</span><span class="n">read_text</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+        <span class="k">if</span> <span class="n">config_dir</span><span class="o">.</span><span class="n">is_dir</span><span class="p">():</span>
+            <span class="k">return</span> <span class="n">config_dir</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Stored config dir </span><span class="si">{</span><span class="n">config_dir</span><span class="si">}</span><span class="s2"> does not exist. Run `sadrive config set-dir &lt;path&gt;`&quot;</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+        <span class="s2">&quot;No config directory set. Run `sadrive config set-dir &lt;path&gt;` first.&quot;</span>
+    <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="get_accounts_path">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.utils.html#sadrive.helpers.utils.get_accounts_path">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_accounts_path</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Constructs the path to the &#39;accounts&#39; subdirectory within the config directory.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Path: Path to the service accounts directory.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">Path</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="n">get_config_dir</span><span class="p">(),</span> <span class="s2">&quot;accounts&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="get_database_path">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.utils.html#sadrive.helpers.utils.get_database_path">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_database_path</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Constructs the path to the SQLite database file within the config directory.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Path: Path to the &#39;database.db&#39; file.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">Path</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="n">get_config_dir</span><span class="p">(),</span> <span class="s2">&quot;database.db&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="get_parent_id">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.utils.html#sadrive.helpers.utils.get_parent_id">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_parent_id</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Reads and returns the parent folder ID from config.json.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        str: The &#39;parent_id&#39; value stored in config.json.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">Path</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="n">get_config_dir</span><span class="p">(),</span><span class="s1">&#39;config.json&#39;</span><span class="p">))</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">parent_id</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)[</span><span class="s1">&#39;parent_id&#39;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">parent_id</span></div>
+
+
+<div class="viewcode-block" id="get_gclone_exe">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.utils.html#sadrive.helpers.utils.get_gclone_exe">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_gclone_exe</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Reads and returns the path to the gclone executable from config.json.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Path: Path to the &#39;gclone&#39; executable.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">Path</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="n">get_config_dir</span><span class="p">(),</span><span class="s1">&#39;config.json&#39;</span><span class="p">))</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">path</span><span class="p">:</span><span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)[</span><span class="s1">&#39;path_to_gclone.exe&#39;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">path</span></div>
+
+
+<div class="viewcode-block" id="set_rclone_conf">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.utils.html#sadrive.helpers.utils.set_rclone_conf">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">set_rclone_conf</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Creates rcone.conf next to gclone executable with default content using the first service account.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">gcpath_parent</span> <span class="o">=</span> <span class="n">get_gclone_exe</span><span class="p">()</span><span class="o">.</span><span class="n">parent</span>
+    <span class="n">confpath</span> <span class="o">=</span> <span class="n">gcpath_parent</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">&#39;rclone.conf&#39;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">confpath</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;&#39;&#39;[sadrive]</span>
+<span class="s1">type = drive  </span>
+<span class="s1">scope = drive  </span>
+<span class="s1">service_account_file = </span><span class="si">{</span><span class="n">get_accounts_path</span><span class="p">()</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">&#39;0.json&#39;</span><span class="p">)</span><span class="si">}</span>
+<span class="s1">service_account_file_path = </span><span class="si">{</span><span class="n">get_accounts_path</span><span class="p">()</span><span class="si">}</span>
+<span class="s1">root_folder_id = </span><span class="si">{</span><span class="n">get_parent_id</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;&#39;&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="humanbytes">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.utils.html#sadrive.helpers.utils.humanbytes">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">humanbytes</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Converts a size in bytes to a human-readable string.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        size: Size in bytes.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        str: Formatted size (e.g. &#39;1.234 MiB&#39;).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">size</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">power</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="mi">10</span>
+    <span class="n">number</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">dict_power_n</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;K&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="s2">&quot;T&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="s2">&quot;P&quot;</span><span class="p">}</span>
+    <span class="k">while</span> <span class="n">size</span> <span class="o">&gt;</span> <span class="n">power</span><span class="p">:</span>
+        <span class="n">size</span> <span class="o">/=</span> <span class="n">power</span>
+        <span class="n">number</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">dict_power_n</span><span class="p">[</span><span class="n">number</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;iB&quot;</span></div>
+
+
+
+<div class="viewcode-block" id="humantime">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.utils.html#sadrive.helpers.utils.humantime">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">humantime</span><span class="p">(</span><span class="n">seconds</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Formats a duration in seconds into HhMmSs or MmSs.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        seconds: Duration in seconds.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        str: Formatted time string.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">seconds</span> <span class="o">&gt;</span> <span class="mi">3600</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Hh%Mm%Ss&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">gmtime</span><span class="p">(</span><span class="n">seconds</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Mm%Ss&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">gmtime</span><span class="p">(</span><span class="n">seconds</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="list_into_n_parts">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.utils.html#sadrive.helpers.utils.list_into_n_parts">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">list_into_n_parts</span><span class="p">(</span><span class="n">lst</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">T</span><span class="p">],</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">T</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Splits a list into n approximately equal parts.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        lst: List of items to split.</span>
+<span class="sd">        n: Number of parts.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        List[List[T]]: A list containing n sublists.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">size</span> <span class="o">=</span> <span class="n">ceil</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">lst</span><span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="n">size</span> <span class="p">:</span> <span class="n">i</span> <span class="o">*</span> <span class="n">size</span> <span class="o">+</span> <span class="n">size</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span></div>
+
+
+
+<div class="viewcode-block" id="Generator">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.utils.html#sadrive.helpers.utils.Generator">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Generator</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Wrapper to enable &#39;yield from&#39; for a generator function.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        gen: The underlying generator.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gen</span><span class="p">:</span><span class="n">Any</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes the Generator wrapper.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            gen: A generator object.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gen</span> <span class="o">=</span> <span class="n">gen</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="c1">#type: ignore</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Enables iteration by delegating to the underlying generator.</span>
+
+<span class="sd">        Yields:</span>
+<span class="sd">            Any: Values produced by the generator.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">:</span><span class="n">Any</span> <span class="o">=</span> <span class="k">yield from</span> <span class="bp">self</span><span class="o">.</span><span class="n">gen</span></div>
+
+
+<div class="viewcode-block" id="get_free_sa">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.utils.html#sadrive.helpers.utils.get_free_sa">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_free_sa</span><span class="p">(</span><span class="n">sa_map</span><span class="p">:</span><span class="n">List</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span><span class="n">Any</span><span class="p">]],</span><span class="n">file_size</span><span class="p">:</span><span class="nb">int</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Selects service account IDs with enough free space.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        sa_map: List of dicts containing &#39;_id&#39; and &#39;size&#39; keys.</span>
+<span class="sd">        file_size: Required file size in bytes.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        List[int]: Sorted list of account IDs that can accommodate the file.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">tmp</span><span class="p">:</span><span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">sa_map</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">MAGIC_SIZE</span> <span class="o">-</span> <span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">])</span> <span class="o">&gt;=</span><span class="n">file_size</span><span class="p">:</span>
+            <span class="n">tmp</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]),</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="s1">&#39;_id&#39;</span><span class="p">])])</span>
+    <span class="n">tmp</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">ok_sas</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tmp</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">ok_sas</span></div>
+
+
+<div class="viewcode-block" id="get_dir_structure">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.utils.html#sadrive.helpers.utils.get_dir_structure">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_dir_structure</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DirTree</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Recursively builds a directory tree mapping folder names to subtrees or file sizes.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        path: Root directory path.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        DirTree: Nested dict mapping names to file sizes or further DirTrees.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">helper</span><span class="p">(</span><span class="n">current_path</span><span class="p">:</span><span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DirTree</span><span class="p">:</span>
+        <span class="n">structure</span><span class="p">:</span><span class="n">DirTree</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">current_path</span><span class="p">):</span>
+            <span class="n">full_path</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="n">current_path</span><span class="p">,</span> <span class="n">entry</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">full_path</span><span class="p">):</span>
+                <span class="n">structure</span><span class="p">[</span><span class="n">entry</span><span class="p">]</span> <span class="o">=</span> <span class="n">helper</span><span class="p">(</span><span class="n">full_path</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">file_size</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getsize</span><span class="p">(</span><span class="n">full_path</span><span class="p">)</span>
+                <span class="n">structure</span><span class="p">[</span><span class="n">entry</span><span class="p">]</span> <span class="o">=</span> <span class="n">file_size</span>
+        <span class="k">return</span> <span class="n">structure</span>
+
+    <span class="k">return</span> <span class="p">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">path</span><span class="p">):</span> <span class="n">helper</span><span class="p">(</span><span class="n">path</span><span class="p">)}</span></div>
+
+
+<div class="viewcode-block" id="get_file_size">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.utils.html#sadrive.helpers.utils.get_file_size">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_file_size</span><span class="p">(</span><span class="n">file_path</span><span class="p">:</span><span class="n">Path</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns the size of a file in bytes by seeking to its end.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        file_path: Path to the target file.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: File size in bytes.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">stream_bytes</span><span class="p">:</span>
+        <span class="n">stream_bytes</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">size</span> <span class="o">=</span> <span class="n">stream_bytes</span><span class="o">.</span><span class="n">tell</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">size</span></div>
+
+
+<div class="viewcode-block" id="shorten_fn">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.utils.html#sadrive.helpers.utils.shorten_fn">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">shorten_fn</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">max_len</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">75</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Truncates a filename to a maximum length with an ellipsis in the middle.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        name: Original filename.</span>
+<span class="sd">        max_len: Maximum allowed length.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        str: Shortened filename if needed, else original.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">max_len</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">name</span>
+    <span class="k">if</span> <span class="n">max_len</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">name</span><span class="p">[:</span><span class="n">max_len</span><span class="p">]</span>
+    <span class="n">head_len</span> <span class="o">=</span> <span class="n">max_len</span> <span class="o">-</span> <span class="n">max_len</span> <span class="o">//</span> <span class="mi">2</span>
+    <span class="n">tail_start</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">max_len</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">head</span> <span class="o">=</span> <span class="n">name</span><span class="p">[:</span><span class="n">head_len</span><span class="p">]</span>
+    <span class="n">tail</span> <span class="o">=</span> <span class="n">name</span><span class="p">[</span><span class="n">tail_start</span><span class="p">:]</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">head</span><span class="si">}</span><span class="s2">...</span><span class="si">{</span><span class="n">tail</span><span class="si">}</span><span class="s2">&quot;</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, jsmaskeen.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
