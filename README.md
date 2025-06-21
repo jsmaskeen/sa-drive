@@ -41,26 +41,26 @@ Hence in this way you can exceed the 15GiB storage of your personal drive.
 
 ## Images and Examples
 1. `sadrive`
-    ![alt text](./docs/_static/images/image.png)
+    ![alt text](https://raw.githubusercontent.com/jsmaskeen/sa-drive/refs/heads/main/docs/_static/images/image.png)
 2. `sadrive config set-dir <path>` 
-    ![alt text](./docs/_static/images/image-1.png)
+    ![alt text](https://raw.githubusercontent.com/jsmaskeen/sa-drive/refs/heads/main/docs/_static/images/image-1.png)
 3. `sadrive rename newname file/folderid`
-    ![alt text](./docs/_static/images/image-2.png)
+    ![alt text](https://raw.githubusercontent.com/jsmaskeen/sa-drive/refs/heads/main/docs/_static/images/image-2.png)
 4. `sadrive navigate [optional_folderid]`
-    ![alt text](./docs/_static/images/image-3.png)
+    ![alt text](https://raw.githubusercontent.com/jsmaskeen/sa-drive/refs/heads/main/docs/_static/images/image-3.png)
 5. `sadrive share file/folderid`
-    ![alt text](./docs/_static/images/image-4.png)
+    ![alt text](https://raw.githubusercontent.com/jsmaskeen/sa-drive/refs/heads/main/docs/_static/images/image-4.png)
 6. `sadrive mount` [This gives a read only filesystem, you can directly view/open files from this]
-    ![alt text](./docs/_static/images/image-5.png)
-    ![alt text](./docs/_static/images/image-6.png)
+    ![alt text](https://raw.githubusercontent.com/jsmaskeen/sa-drive/refs/heads/main/docs/_static/images/image-5.png)
+    ![alt text](https://raw.githubusercontent.com/jsmaskeen/sa-drive/refs/heads/main/docs/_static/images/image-6.png)
 7. `sadrive delete file/folderid`
-    ![alt text](./docs/_static/images/image-7.png)
+    ![alt text](https://raw.githubusercontent.com/jsmaskeen/sa-drive/refs/heads/main/docs/_static/images/image-7.png)
 8. `sadrive newfolder name [optional_destination_id]`
-    ![alt text](./docs/_static/images/image-8.png)
+    ![alt text](https://raw.githubusercontent.com/jsmaskeen/sa-drive/refs/heads/main/docs/_static/images/image-8.png)
 9. `sadrive upload path/to/upload destination_folder_id` If destination folder id is not provided then it will upload to the parent directory set in `config.json`.
-    ![alt text](./docs/_static/images/image-9.png)
+    ![alt text](https://raw.githubusercontent.com/jsmaskeen/sa-drive/refs/heads/main/docs/_static/images/image-9.png)
 10. `sadrive download folder_id path/to/destination [--transfers int]`. transfers represents the maximum number of parallel downloads you want.
-    ![alt text](./docs/_static/images/image-10.png)
+    ![alt text](https://raw.githubusercontent.com/jsmaskeen/sa-drive/refs/heads/main/docs/_static/images/image-10.png)
 
 ## Limitations
 None as of now.

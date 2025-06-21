@@ -6,3 +6,4 @@ venv/
 config_dir/
 setup.py
 dist/*
+sadrive.egg-info/*
