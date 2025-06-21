@@ -1,6 +1,4 @@
-accounts/
 *__pycache__*
-*.json
 venv/
 *.log
 config_dir/

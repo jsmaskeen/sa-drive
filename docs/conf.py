@@ -8,12 +8,17 @@
 
 import os
 import sys
+import pathlib
+
 sys.path.insert(
     0,
     os.path.abspath(
         os.path.join(__file__, "..", "..")
     )
 )
+
+import sadrive.helpers.utils as _u
+_u.get_config_dir = lambda: pathlib.Path(__file__).parent / "fake_conf"
 
 project = 'sadrive'
 copyright = '2025, jsmaskeen'

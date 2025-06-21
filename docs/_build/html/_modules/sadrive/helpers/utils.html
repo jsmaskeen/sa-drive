@@ -400,8 +400,6 @@
 <span class="n">BUFFER</span> <span class="o">=</span> <span class="mi">250</span> <span class="o">*</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span>
 <span class="n">MAX_THREADS</span> <span class="o">=</span> <span class="mi">10</span>
 
-<div class="viewcode-block" id="get_config_dir">
-<a class="viewcode-back" href="../../../modules/sadrive.helpers.utils.html#sadrive.helpers.utils.get_config_dir">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">get_config_dir</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Retrieves the configuration directory path from CONFIG_POINTER.</span>
@@ -420,8 +418,7 @@
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Stored config dir </span><span class="si">{</span><span class="n">config_dir</span><span class="si">}</span><span class="s2"> does not exist. Run `sadrive config set-dir &lt;path&gt;`&quot;</span><span class="p">)</span>
     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
         <span class="s2">&quot;No config directory set. Run `sadrive config set-dir &lt;path&gt;` first.&quot;</span>
-    <span class="p">)</span></div>
-
+    <span class="p">)</span>
 
 
 <div class="viewcode-block" id="get_accounts_path">
