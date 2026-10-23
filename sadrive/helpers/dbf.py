@@ -127,6 +127,21 @@ def rename_file(file_id:str, new_file_name:str):
         )
         
 
+def move_file(file_id: str, new_parent_id: str):
+    """
+    Updates the parent folder of a file or folder in the database.
+
+    Args:
+        file_id: Unique identifier of the file or folder.
+        new_parent_id: New parent folder identifier.
+    """
+    with get_connection() as conn:
+        conn.execute(
+            'UPDATE file_map SET parent_id = ? WHERE _id = ?',
+            (new_parent_id, file_id)
+        )
+
+
 def share_file(file_id:str, shared:bool=True):
     """
     Marks a file as shared or unshared.

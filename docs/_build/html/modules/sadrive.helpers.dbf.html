@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>sadrive.helpers.dbf module &#8212; sadrive 2.0.0 documentation</title>
+    <title>sadrive.helpers.dbf module &#8212; sadrive 2.0.3 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=51b770b3"></script>
+    <script src="../_static/documentation_options.js?v=664ffad9"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'modules/sadrive.helpers.dbf';</script>
@@ -110,7 +110,7 @@
   
   
   
-    <p class="title logo__title">sadrive 2.0.0 documentation</p>
+    <p class="title logo__title">sadrive 2.0.3 documentation</p>
   
 </a></div>
     
@@ -534,6 +534,20 @@ for file mappings and service account size tracking.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="sadrive.helpers.dbf.move_file">
+<span class="sig-prename descclassname"><span class="pre">sadrive.helpers.dbf.</span></span><span class="sig-name descname"><span class="pre">move_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_parent_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sadrive/helpers/dbf.html#move_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sadrive.helpers.dbf.move_file" title="Link to this definition">#</a></dt>
+<dd><p>Updates the parent folder of a file or folder in the database.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_id</strong> – Unique identifier of the file or folder.</p></li>
+<li><p><strong>new_parent_id</strong> – New parent folder identifier.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="sadrive.helpers.dbf.remove_size">
 <span class="sig-prename descclassname"><span class="pre">sadrive.helpers.dbf.</span></span><span class="sig-name descname"><span class="pre">remove_size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sa_num</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sadrive/helpers/dbf.html#remove_size"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sadrive.helpers.dbf.remove_size" title="Link to this definition">#</a></dt>
 <dd><p>Subtracts size from a service account’s recorded usage.</p>
@@ -674,6 +688,7 @@ available (int): Total available capacity in bytes.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sadrive.helpers.dbf.get_size_map"><code class="docutils literal notranslate"><span class="pre">get_size_map()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sadrive.helpers.dbf.insert_file"><code class="docutils literal notranslate"><span class="pre">insert_file()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sadrive.helpers.dbf.insert_size_map"><code class="docutils literal notranslate"><span class="pre">insert_size_map()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sadrive.helpers.dbf.move_file"><code class="docutils literal notranslate"><span class="pre">move_file()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sadrive.helpers.dbf.remove_size"><code class="docutils literal notranslate"><span class="pre">remove_size()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sadrive.helpers.dbf.rename_file"><code class="docutils literal notranslate"><span class="pre">rename_file()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sadrive.helpers.dbf.reset_sa_sizes"><code class="docutils literal notranslate"><span class="pre">reset_sa_sizes()</span></code></a></li>

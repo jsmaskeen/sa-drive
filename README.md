@@ -62,6 +62,8 @@ Hence in this way you can exceed the 15GiB storage of your personal drive.
 10. `sadrive download folder_id path/to/destination [--transfers int]`. transfers represents the maximum number of parallel downloads you want.
     ![alt text](https://raw.githubusercontent.com/jsmaskeen/sa-drive/refs/heads/main/docs/_static/images/image-10.png)
 
+11. `sadrive move file/folderid [optional_destination_id]` Move a file or folder to a destination folder ID (defaults to root if destination is omitted). You can also use `sadrive move <id> to <destination_id>`.
+
 ## Limitations
 None as of now.
 

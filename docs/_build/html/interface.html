@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Command-Line Interface &#8212; sadrive 2.0.0 documentation</title>
+    <title>Command-Line Interface &#8212; sadrive 2.0.3 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="_static/documentation_options.js?v=51b770b3"></script>
+    <script src="_static/documentation_options.js?v=664ffad9"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'interface';</script>
@@ -110,7 +110,7 @@
   
   
   
-    <p class="title logo__title">sadrive 2.0.0 documentation</p>
+    <p class="title logo__title">sadrive 2.0.3 documentation</p>
   
 </a></div>
     
@@ -475,6 +475,48 @@ until user interrupts (Ctrl+C).</p>
 </pre></div>
 </div>
 </section>
+<section id="sadrive-move">
+<h3>move<a class="headerlink" href="#sadrive-move" title="Link to this heading">#</a></h3>
+<p>Move a file or folder to a destination folder ID.</p>
+<dl class="simple">
+<dt>Usage:</dt><dd><p>sadrive move &lt;id&gt; &lt;destination_id&gt;
+sadrive move &lt;id&gt; to &lt;destination_id&gt;
+sadrive move &lt;id&gt;  (defaults to root directory)</p>
+</dd>
+<dt>Args:</dt><dd><p>id: Drive item ID to move.
+destination: Target folder ID (or ‘to’).
+extra: Target folder ID if ‘to’ keyword was used.</p>
+</dd>
+<dt>Side Effects:</dt><dd><ul class="simple">
+<li><p>Updates parent references in Google Drive.</p></li>
+<li><p>Updates local database record.</p></li>
+<li><p>Storage usage remains allocated to the original service account.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sadrive<span class="w"> </span>move<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>ID<span class="w"> </span><span class="o">[</span>DESTINATION<span class="o">]</span><span class="w"> </span><span class="o">[</span>EXTRA<span class="o">]</span>
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-sadrive-move-arg-ID">
+<span class="sig-name descname"><span class="pre">ID</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-sadrive-move-arg-ID" title="Link to this definition">#</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-sadrive-move-arg-DESTINATION">
+<span class="sig-name descname"><span class="pre">DESTINATION</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-sadrive-move-arg-DESTINATION" title="Link to this definition">#</a></dt>
+<dd><p>Optional argument</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-sadrive-move-arg-EXTRA">
+<span class="sig-name descname"><span class="pre">EXTRA</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-sadrive-move-arg-EXTRA" title="Link to this definition">#</a></dt>
+<dd><p>Optional argument</p>
+</dd></dl>
+
+</section>
 <section id="sadrive-navigate">
 <h3>navigate<a class="headerlink" href="#sadrive-navigate" title="Link to this heading">#</a></h3>
 <p>CLI command to launch interactive navigation of SA-Drive.</p>
@@ -776,6 +818,7 @@ destination: Drive folder ID where the content will be uploaded (default: root).
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sadrive-details">details</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sadrive-download">download</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sadrive-mount">mount</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sadrive-move">move</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sadrive-navigate">navigate</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sadrive-newfolder">newfolder</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sadrive-open-link">open-link</a></li>

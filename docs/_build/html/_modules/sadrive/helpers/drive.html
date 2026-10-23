@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>sadrive.helpers.drive &#8212; sadrive 2.0.0 documentation</title>
+    <title>sadrive.helpers.drive &#8212; sadrive 2.0.3 documentation</title>
   
   
   
@@ -37,7 +37,7 @@
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../../_static/documentation_options.js?v=51b770b3"></script>
+    <script src="../../../_static/documentation_options.js?v=664ffad9"></script>
     <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/sadrive/helpers/drive';</script>
@@ -107,7 +107,7 @@
   
   
   
-    <p class="title logo__title">sadrive 2.0.0 documentation</p>
+    <p class="title logo__title">sadrive 2.0.3 documentation</p>
   
 </a></div>
     
@@ -303,7 +303,7 @@
 <span class="sd">- PatchedDrive subclass for typing</span>
 <span class="sd">- SADrive class for Drive operations</span>
 <span class="sd">- Authentication</span>
-<span class="sd">- File listing, creation, upload, rename, delete</span>
+<span class="sd">- File listing, creation, upload, rename, move, delete</span>
 <span class="sd">- Sharing/unsharing</span>
 <span class="sd">- Search and space usage</span>
 <span class="sd">- Bulk deletion</span>
@@ -469,6 +469,47 @@
         <span class="n">f</span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_name</span>
         <span class="n">f</span><span class="o">.</span><span class="n">Upload</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">f</span></div>
+
+
+<div class="viewcode-block" id="SADrive.move">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.drive.html#sadrive.helpers.drive.SADrive.move">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">new_parent_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">old_parent_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Moves a file or folder to a new parent folder in Google Drive.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            file_id: ID of the file or folder to move.</span>
+<span class="sd">            new_parent_id: ID of the destination folder.</span>
+<span class="sd">            old_parent_id: Optional current parent folder ID to remove. If omitted,</span>
+<span class="sd">                           current parents are fetched via the Drive API.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The API response dictionary from files().update().</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">old_parent_id</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">file_metadata</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">_service</span><span class="o">.</span><span class="n">files</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+                    <span class="n">fileId</span><span class="o">=</span><span class="n">file_id</span><span class="p">,</span>
+                    <span class="n">fields</span><span class="o">=</span><span class="s2">&quot;parents&quot;</span><span class="p">,</span>
+                    <span class="n">supportsAllDrives</span><span class="o">=</span><span class="kc">True</span>
+                <span class="p">)</span><span class="o">.</span><span class="n">execute</span><span class="p">())</span>
+                <span class="n">parents</span> <span class="o">=</span> <span class="n">file_metadata</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;parents&quot;</span><span class="p">,</span> <span class="p">[])</span>
+                <span class="n">previous_parents</span> <span class="o">=</span> <span class="s2">&quot;,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">p</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">parents</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span> <span class="ow">and</span> <span class="s2">&quot;id&quot;</span> <span class="ow">in</span> <span class="n">p</span><span class="p">])</span>
+            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                <span class="n">previous_parents</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">previous_parents</span> <span class="o">=</span> <span class="n">old_parent_id</span>
+
+        <span class="n">kwargs</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;fileId&quot;</span><span class="p">:</span> <span class="n">file_id</span><span class="p">,</span>
+            <span class="s2">&quot;addParents&quot;</span><span class="p">:</span> <span class="n">new_parent_id</span><span class="p">,</span>
+            <span class="s2">&quot;supportsAllDrives&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s2">&quot;body&quot;</span><span class="p">:</span> <span class="p">{}</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="n">previous_parents</span><span class="p">:</span>
+            <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;removeParents&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">previous_parents</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_service</span><span class="o">.</span><span class="n">files</span><span class="p">()</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span></div>
 
 
 <div class="viewcode-block" id="SADrive.share">

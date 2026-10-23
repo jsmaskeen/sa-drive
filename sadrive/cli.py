@@ -24,6 +24,7 @@ Subcommands:
     - rebuild: Reconstruct a .sapart split file
     - share: Share a file/folder via link
     - rename: Rename a file/folder on Drive
+    - move: Move a file or folder to a destination folder
     - open-link: Open a file/folder in browser
     - search: Fuzzy or strict search for files
     - details: Show storage usage by each service account
@@ -68,14 +69,14 @@ try:
     sadrive.add_command(download, name='download')
     sadrive.add_command(rebuild, name='rebuild')
 
-    from sadrive.commands.manipulation import newfolder,share,rename,open_link,details,search
+    from sadrive.commands.manipulation import newfolder,share,rename,open_link,details,search,move
     sadrive.add_command(newfolder, name='newfolder')
     sadrive.add_command(search, name='search')
     sadrive.add_command(share, name='share')
     sadrive.add_command(rename, name='rename')
     sadrive.add_command(open_link, name='open-link')
     sadrive.add_command(details, name='details')
-    sadrive.add_command(details, name='details')
+    sadrive.add_command(move, name='move')
 
     from sadrive.commands.db import update_sas
     sadrive.add_command(update_sas, name='update_sas')

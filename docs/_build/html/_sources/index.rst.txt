@@ -93,6 +93,10 @@ Examples
        :alt: sadrive download
 
 
+11. ``sadrive move file/folderid [optional_destination_id]``  
+    *(Move a file or folder to a destination folder ID. You can also use ``sadrive move <id> to <destination_id>``.)*
+
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:

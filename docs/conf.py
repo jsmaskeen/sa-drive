@@ -23,7 +23,7 @@ _u.get_config_dir = lambda: pathlib.Path(__file__).parent / "fake_conf"
 project = 'sadrive'
 copyright = '2025, jsmaskeen'
 author = 'jsmaskeen'
-release = '2.0.0'
+release = '2.0.3'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration

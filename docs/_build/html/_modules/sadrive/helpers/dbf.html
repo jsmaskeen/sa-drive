@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>sadrive.helpers.dbf &#8212; sadrive 2.0.0 documentation</title>
+    <title>sadrive.helpers.dbf &#8212; sadrive 2.0.3 documentation</title>
   
   
   
@@ -37,7 +37,7 @@
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../../_static/documentation_options.js?v=51b770b3"></script>
+    <script src="../../../_static/documentation_options.js?v=664ffad9"></script>
     <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/sadrive/helpers/dbf';</script>
@@ -107,7 +107,7 @@
   
   
   
-    <p class="title logo__title">sadrive 2.0.0 documentation</p>
+    <p class="title logo__title">sadrive 2.0.3 documentation</p>
   
 </a></div>
     
@@ -442,6 +442,24 @@
         <span class="p">)</span></div>
 
         
+
+<div class="viewcode-block" id="move_file">
+<a class="viewcode-back" href="../../../modules/sadrive.helpers.dbf.html#sadrive.helpers.dbf.move_file">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">move_file</span><span class="p">(</span><span class="n">file_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">new_parent_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Updates the parent folder of a file or folder in the database.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        file_id: Unique identifier of the file or folder.</span>
+<span class="sd">        new_parent_id: New parent folder identifier.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="n">get_connection</span><span class="p">()</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+            <span class="s1">&#39;UPDATE file_map SET parent_id = ? WHERE _id = ?&#39;</span><span class="p">,</span>
+            <span class="p">(</span><span class="n">new_parent_id</span><span class="p">,</span> <span class="n">file_id</span><span class="p">)</span>
+        <span class="p">)</span></div>
+
+
 
 <div class="viewcode-block" id="share_file">
 <a class="viewcode-back" href="../../../modules/sadrive.helpers.dbf.html#sadrive.helpers.dbf.share_file">[docs]</a>

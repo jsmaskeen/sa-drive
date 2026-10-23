@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>sadrive.commands.manipulation &#8212; sadrive 2.0.0 documentation</title>
+    <title>sadrive.commands.manipulation &#8212; sadrive 2.0.3 documentation</title>
   
   
   
@@ -37,7 +37,7 @@
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../../_static/documentation_options.js?v=51b770b3"></script>
+    <script src="../../../_static/documentation_options.js?v=664ffad9"></script>
     <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/sadrive/commands/manipulation';</script>
@@ -107,7 +107,7 @@
   
   
   
-    <p class="title logo__title">sadrive 2.0.0 documentation</p>
+    <p class="title logo__title">sadrive 2.0.3 documentation</p>
   
 </a></div>
     
@@ -301,6 +301,7 @@
 <span class="sd">- newfolder: Create a new Drive folder and record it locally.</span>
 <span class="sd">- share: Share files or folders (recursive) and update DB.</span>
 <span class="sd">- rename: Rename a Drive item and update DB.</span>
+<span class="sd">- move: Move a Drive file or folder to a destination folder and update DB.</span>
 <span class="sd">- open_link: Open a Drive item in the browser.</span>
 <span class="sd">- details: Display storage usage table for all service accounts.</span>
 <span class="sd">- search: Interactive search of files/folders by name.</span>
@@ -319,7 +320,7 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">sadrive.helpers.dbf</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">dbf</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">click</span><span class="w"> </span><span class="kn">import</span> <span class="n">Context</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">prettytable</span><span class="w"> </span><span class="kn">import</span> <span class="n">PrettyTable</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">cast</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">cast</span><span class="p">,</span> <span class="n">Optional</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">inquirer</span> <span class="c1">#type:ignore</span>
 
 
@@ -436,6 +437,109 @@
     <span class="n">drive</span> <span class="o">=</span> <span class="n">SADrive</span><span class="p">(</span><span class="n">sa_num</span><span class="p">)</span>
     <span class="n">drive</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span><span class="n">newname</span><span class="p">)</span>
     <span class="n">dbf</span><span class="o">.</span><span class="n">rename_file</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span><span class="n">newname</span><span class="p">)</span>
+
+<div class="viewcode-block" id="is_descendant">
+<a class="viewcode-back" href="../../../modules/sadrive.commands.manipulation.html#sadrive.commands.manipulation.is_descendant">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_descendant</span><span class="p">(</span><span class="n">parent_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">candidate_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">root_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Checks if candidate_id is within parent_id or any of its subfolders.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        parent_id: Folder ID that might be an ancestor.</span>
+<span class="sd">        candidate_id: Folder ID to test.</span>
+<span class="sd">        root_id: ID of the root directory.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        True if candidate_id is a descendant of parent_id, False otherwise.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">curr</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">candidate_id</span>
+    <span class="k">while</span> <span class="n">curr</span> <span class="ow">and</span> <span class="n">curr</span> <span class="o">!=</span> <span class="n">root_id</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">curr</span> <span class="o">==</span> <span class="n">parent_id</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="n">curr_fd</span> <span class="o">=</span> <span class="n">dbf</span><span class="o">.</span><span class="n">get_file_details</span><span class="p">(</span><span class="n">curr</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">curr_fd</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="n">curr</span> <span class="o">=</span> <span class="n">curr_fd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;parent_id&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">False</span></div>
+
+
+
+<span class="nd">@click</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">argument</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">argument</span><span class="p">(</span><span class="s2">&quot;destination&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">argument</span><span class="p">(</span><span class="s2">&quot;extra&quot;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">move</span><span class="p">(</span><span class="nb">id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">destination</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">extra</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Move a file or folder to a destination folder ID.</span>
+
+<span class="sd">    Usage:</span>
+<span class="sd">        sadrive move &lt;id&gt; &lt;destination_id&gt;</span>
+<span class="sd">        sadrive move &lt;id&gt; to &lt;destination_id&gt;</span>
+<span class="sd">        sadrive move &lt;id&gt;  (defaults to root directory)</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        id: Drive item ID to move.</span>
+<span class="sd">        destination: Target folder ID (or &#39;to&#39;).</span>
+<span class="sd">        extra: Target folder ID if &#39;to&#39; keyword was used.</span>
+
+<span class="sd">    Side Effects:</span>
+<span class="sd">        - Updates parent references in Google Drive.</span>
+<span class="sd">        - Updates local database record.</span>
+<span class="sd">        - Storage usage remains allocated to the original service account.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">root_id</span> <span class="o">=</span> <span class="n">get_parent_id</span><span class="p">()</span>
+
+    <span class="c1"># Handle &#39;to&#39; keyword syntax</span>
+    <span class="k">if</span> <span class="n">destination</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;to&quot;</span> <span class="ow">and</span> <span class="n">extra</span><span class="p">:</span>
+        <span class="n">destination</span> <span class="o">=</span> <span class="n">extra</span>
+    <span class="k">elif</span> <span class="ow">not</span> <span class="n">destination</span><span class="p">:</span>
+        <span class="n">destination</span> <span class="o">=</span> <span class="n">root_id</span>
+
+    <span class="k">if</span> <span class="nb">id</span> <span class="o">==</span> <span class="n">root_id</span><span class="p">:</span>
+        <span class="n">click</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="s2">&quot;Error: Cannot move the root folder !!&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="n">fd</span> <span class="o">=</span> <span class="n">dbf</span><span class="o">.</span><span class="n">get_file_details</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">fd</span><span class="p">:</span>
+        <span class="n">click</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: Source file/folder ID &#39;</span><span class="si">{</span><span class="nb">id</span><span class="si">}</span><span class="s2">&#39; does not exist in SA-Drive database !!&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="k">if</span> <span class="nb">id</span> <span class="o">==</span> <span class="n">destination</span><span class="p">:</span>
+        <span class="n">click</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="s2">&quot;Error: Cannot move an item into itself !!&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="k">if</span> <span class="n">fd</span><span class="p">[</span><span class="s2">&quot;parent_id&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">destination</span><span class="p">:</span>
+        <span class="n">click</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Item &#39;</span><span class="si">{</span><span class="n">fd</span><span class="p">[</span><span class="s1">&#39;file_name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&#39; is already in destination folder !!&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="k">if</span> <span class="n">destination</span> <span class="o">!=</span> <span class="n">root_id</span><span class="p">:</span>
+        <span class="n">dest_fd</span> <span class="o">=</span> <span class="n">dbf</span><span class="o">.</span><span class="n">get_file_details</span><span class="p">(</span><span class="n">destination</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">dest_fd</span><span class="p">:</span>
+            <span class="n">click</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: Destination folder ID &#39;</span><span class="si">{</span><span class="n">destination</span><span class="si">}</span><span class="s2">&#39; does not exist in SA-Drive database !!&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="k">if</span> <span class="n">dest_fd</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;folder&quot;</span><span class="p">:</span>
+            <span class="n">click</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: Destination ID &#39;</span><span class="si">{</span><span class="n">destination</span><span class="si">}</span><span class="s2">&#39; is a file (</span><span class="si">{</span><span class="n">dest_fd</span><span class="p">[</span><span class="s1">&#39;file_name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">), not a folder !!&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="n">dest_name</span> <span class="o">=</span> <span class="n">dest_fd</span><span class="p">[</span><span class="s2">&quot;file_name&quot;</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">dest_name</span> <span class="o">=</span> <span class="s2">&quot;root&quot;</span>
+
+    <span class="c1"># Subfolder cycle prevention for folders</span>
+    <span class="k">if</span> <span class="n">fd</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;folder&quot;</span> <span class="ow">and</span> <span class="n">is_descendant</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">destination</span><span class="p">,</span> <span class="n">root_id</span><span class="p">):</span>
+        <span class="n">click</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: Cannot move folder &#39;</span><span class="si">{</span><span class="n">fd</span><span class="p">[</span><span class="s1">&#39;file_name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&#39; into one of its own subfolders !!&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="n">sa_num</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;service_acc_num&quot;</span><span class="p">,</span> <span class="s2">&quot;0&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="s2">&quot;0&quot;</span>
+    <span class="n">drive</span> <span class="o">=</span> <span class="n">SADrive</span><span class="p">(</span><span class="n">sa_num</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">drive</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">destination</span><span class="p">,</span> <span class="n">old_parent_id</span><span class="o">=</span><span class="n">fd</span><span class="p">[</span><span class="s2">&quot;parent_id&quot;</span><span class="p">])</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">click</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error moving item in Google Drive: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="n">dbf</span><span class="o">.</span><span class="n">move_file</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">destination</span><span class="p">)</span>
+    <span class="n">click</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Successfully moved </span><span class="si">{</span><span class="n">fd</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> &#39;</span><span class="si">{</span><span class="n">fd</span><span class="p">[</span><span class="s1">&#39;file_name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&#39; to &#39;</span><span class="si">{</span><span class="n">dest_name</span><span class="si">}</span><span class="s2">&#39; (ID: </span><span class="si">{</span><span class="n">destination</span><span class="si">}</span><span class="s2">).&quot;</span><span class="p">)</span>
+
 
 <span class="nd">@click</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
 <span class="nd">@click</span><span class="o">.</span><span class="n">argument</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>

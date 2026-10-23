@@ -5,7 +5,7 @@ Includes:
 - PatchedDrive subclass for typing
 - SADrive class for Drive operations
 - Authentication
-- File listing, creation, upload, rename, delete
+- File listing, creation, upload, rename, move, delete
 - Sharing/unsharing
 - Search and space usage
 - Bulk deletion
@@ -155,6 +155,44 @@ class SADrive:
         f["title"] = new_name
         f.Upload()
         return f
+
+    def move(self, file_id: str, new_parent_id: str, old_parent_id: Optional[str] = None):
+        """
+        Moves a file or folder to a new parent folder in Google Drive.
+
+        Args:
+            file_id: ID of the file or folder to move.
+            new_parent_id: ID of the destination folder.
+            old_parent_id: Optional current parent folder ID to remove. If omitted,
+                           current parents are fetched via the Drive API.
+
+        Returns:
+            The API response dictionary from files().update().
+        """
+        if not old_parent_id:
+            try:
+                file_metadata = cast(dict[str, Any], self._service.files().get(
+                    fileId=file_id,
+                    fields="parents",
+                    supportsAllDrives=True
+                ).execute())
+                parents = file_metadata.get("parents", [])
+                previous_parents = ",".join([p["id"] for p in parents if isinstance(p, dict) and "id" in p])
+            except Exception:
+                previous_parents = ""
+        else:
+            previous_parents = old_parent_id
+
+        kwargs: dict[str, Any] = {
+            "fileId": file_id,
+            "addParents": new_parent_id,
+            "supportsAllDrives": True,
+            "body": {}
+        }
+        if previous_parents:
+            kwargs["removeParents"] = previous_parents
+
+        return self._service.files().update(**kwargs).execute()
 
     def share(self, fileid: str):
         """

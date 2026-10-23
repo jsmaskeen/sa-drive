@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>sadrive.helpers.drive module &#8212; sadrive 2.0.0 documentation</title>
+    <title>sadrive.helpers.drive module &#8212; sadrive 2.0.3 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=51b770b3"></script>
+    <script src="../_static/documentation_options.js?v=664ffad9"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'modules/sadrive.helpers.drive';</script>
@@ -110,7 +110,7 @@
   
   
   
-    <p class="title logo__title">sadrive 2.0.0 documentation</p>
+    <p class="title logo__title">sadrive 2.0.3 documentation</p>
   
 </a></div>
     
@@ -348,7 +348,7 @@
 - PatchedDrive subclass for typing
 - SADrive class for Drive operations
 - Authentication
-- File listing, creation, upload, rename, delete
+- File listing, creation, upload, rename, move, delete
 - Sharing/unsharing
 - Search and space usage
 - Bulk deletion</p>
@@ -440,6 +440,25 @@
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>List of GoogleDriveFile instances.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sadrive.helpers.drive.SADrive.move">
+<span class="sig-name descname"><span class="pre">move</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_parent_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">old_parent_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sadrive/helpers/drive.html#SADrive.move"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sadrive.helpers.drive.SADrive.move" title="Link to this definition">#</a></dt>
+<dd><p>Moves a file or folder to a new parent folder in Google Drive.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_id</strong> – ID of the file or folder to move.</p></li>
+<li><p><strong>new_parent_id</strong> – ID of the destination folder.</p></li>
+<li><p><strong>old_parent_id</strong> – Optional current parent folder ID to remove. If omitted,
+current parents are fetched via the Drive API.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The API response dictionary from files().update().</p>
 </dd>
 </dl>
 </dd></dl>
@@ -594,6 +613,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sadrive.helpers.drive.SADrive.delete_all_files"><code class="docutils literal notranslate"><span class="pre">SADrive.delete_all_files()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sadrive.helpers.drive.SADrive.delete_file"><code class="docutils literal notranslate"><span class="pre">SADrive.delete_file()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sadrive.helpers.drive.SADrive.list_files"><code class="docutils literal notranslate"><span class="pre">SADrive.list_files()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sadrive.helpers.drive.SADrive.move"><code class="docutils literal notranslate"><span class="pre">SADrive.move()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sadrive.helpers.drive.SADrive.rename"><code class="docutils literal notranslate"><span class="pre">SADrive.rename()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sadrive.helpers.drive.SADrive.search"><code class="docutils literal notranslate"><span class="pre">SADrive.search()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sadrive.helpers.drive.SADrive.share"><code class="docutils literal notranslate"><span class="pre">SADrive.share()</span></code></a></li>

@@ -3,6 +3,7 @@ Provides CLI commands for common SA-Drive operations:
 - newfolder: Create a new Drive folder and record it locally.
 - share: Share files or folders (recursive) and update DB.
 - rename: Rename a Drive item and update DB.
+- move: Move a Drive file or folder to a destination folder and update DB.
 - open_link: Open a Drive item in the browser.
 - details: Display storage usage table for all service accounts.
 - search: Interactive search of files/folders by name.
@@ -21,7 +22,7 @@ from sadrive.helpers.drive import SADrive
 import sadrive.helpers.dbf as dbf
 from click import Context
 from prettytable import PrettyTable
-from typing import cast
+from typing import cast, Optional
 import inquirer #type:ignore
 
 
@@ -132,6 +133,106 @@ def rename(newname: str,id:str):
     drive = SADrive(sa_num)
     drive.rename(id,newname)
     dbf.rename_file(id,newname)
+
+def is_descendant(parent_id: str, candidate_id: str, root_id: str) -> bool:
+    """
+    Checks if candidate_id is within parent_id or any of its subfolders.
+
+    Args:
+        parent_id: Folder ID that might be an ancestor.
+        candidate_id: Folder ID to test.
+        root_id: ID of the root directory.
+
+    Returns:
+        True if candidate_id is a descendant of parent_id, False otherwise.
+    """
+    curr: Optional[str] = candidate_id
+    while curr and curr != root_id:
+        if curr == parent_id:
+            return True
+        curr_fd = dbf.get_file_details(curr)
+        if not curr_fd:
+            break
+        curr = curr_fd.get("parent_id")
+    return False
+
+
+@click.command()
+@click.argument("id")
+@click.argument("destination", default="")
+@click.argument("extra", required=False)
+def move(id: str, destination: str = "", extra: Optional[str] = None):
+    """
+    Move a file or folder to a destination folder ID.
+
+    Usage:
+        sadrive move <id> <destination_id>
+        sadrive move <id> to <destination_id>
+        sadrive move <id>  (defaults to root directory)
+
+    Args:
+        id: Drive item ID to move.
+        destination: Target folder ID (or 'to').
+        extra: Target folder ID if 'to' keyword was used.
+
+    Side Effects:
+        - Updates parent references in Google Drive.
+        - Updates local database record.
+        - Storage usage remains allocated to the original service account.
+    """
+    root_id = get_parent_id()
+
+    # Handle 'to' keyword syntax
+    if destination.lower() == "to" and extra:
+        destination = extra
+    elif not destination:
+        destination = root_id
+
+    if id == root_id:
+        click.echo("Error: Cannot move the root folder !!")
+        return
+
+    fd = dbf.get_file_details(id)
+    if not fd:
+        click.echo(f"Error: Source file/folder ID '{id}' does not exist in SA-Drive database !!")
+        return
+
+    if id == destination:
+        click.echo("Error: Cannot move an item into itself !!")
+        return
+
+    if fd["parent_id"] == destination:
+        click.echo(f"Item '{fd['file_name']}' is already in destination folder !!")
+        return
+
+    if destination != root_id:
+        dest_fd = dbf.get_file_details(destination)
+        if not dest_fd:
+            click.echo(f"Error: Destination folder ID '{destination}' does not exist in SA-Drive database !!")
+            return
+        if dest_fd["type"] != "folder":
+            click.echo(f"Error: Destination ID '{destination}' is a file ({dest_fd['file_name']}), not a folder !!")
+            return
+        dest_name = dest_fd["file_name"]
+    else:
+        dest_name = "root"
+
+    # Subfolder cycle prevention for folders
+    if fd["type"] == "folder" and is_descendant(id, destination, root_id):
+        click.echo(f"Error: Cannot move folder '{fd['file_name']}' into one of its own subfolders !!")
+        return
+
+    sa_num = fd.get("service_acc_num", "0") or "0"
+    drive = SADrive(sa_num)
+    try:
+        drive.move(id, destination, old_parent_id=fd["parent_id"])
+    except Exception as e:
+        click.echo(f"Error moving item in Google Drive: {e}")
+        return
+
+    dbf.move_file(id, destination)
+    click.echo(f"Successfully moved {fd['type']} '{fd['file_name']}' to '{dest_name}' (ID: {destination}).")
+
 
 @click.command()
 @click.argument('id')
